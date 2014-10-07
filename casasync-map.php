@@ -1,7 +1,7 @@
 <?php
 /*
- *	Plugin Name: 	Complex Manager
- *	Description:    Plugin for managing and presenting real-estate building project sales.
+ *	Plugin Name: 	Casasync Map
+ *	Description:    Plugin for managing and presenting real-estate building on a map.
  *	Author:         Casasoft AG
  *	Author URI:     http://casasoft.ch
  *	Version: 		0.0.1

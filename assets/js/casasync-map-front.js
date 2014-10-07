@@ -3,95 +3,77 @@ jQuery( function () {
 
 	var $ = jQuery;
 	
-	function activateProjectUnit($headerRow){
-		$('.complex-project-graphic-interaction a').each(function(index, el) {
-			$(el).attr("class", "");
-		});
+	/* Google Maps
+	*************************/
 
-		if ($headerRow.hasClass('active')) {
-			$headerRow.next().find('.detail-row-wrapper').slideUp('slow');
-			$headerRow.removeClass('active');
-			$headerRow.next().removeClass('active');
-		} else {
-			$('.complex-unit-header-row.active').each(function(index, el) {
-				
-				$(el).next().find('.detail-row-wrapper').slideUp('slow');
-				$(el).removeClass('active');
-				$(el).next().removeClass('active');
+
+	// The following example creates complex markers to indicate beaches near
+	// Sydney, NSW, Australia. Note that the anchor is set to
+	// (0,32) to correspond to the base of the flagpole.
+
+	function initialize() {
+		var mapOptions = {
+			zoom: 10,
+			center: new google.maps.LatLng(-33.9, 151.2)
+		}
+		var map = new google.maps.Map(document.getElementById('casasync-map_map'), mapOptions);
+		setMarkers(map, beaches);
+	}
+
+	/**
+	 * Data for the markers consisting of a name, a LatLng and a zIndex for
+	 * the order in which these markers should display on top of each
+	 * other.
+	 */
+	var beaches = [
+	  ['Bondi Beach', -33.890542, 151.274856, 4],
+	  ['Coogee Beach', -33.923036, 151.259052, 5],
+	  ['Cronulla Beach', -34.028249, 151.157507, 3],
+	  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+	  ['Maroubra Beach', -33.950198, 151.259302, 1]
+	];
+
+	function setMarkers(map, locations) {
+		// Add markers to the map
+
+		// Marker sizes are expressed as a Size of X,Y
+		// where the origin of the image (0,0) is located
+		// in the top left of the image.
+
+		// Origins, anchor positions and coordinates of the marker
+		// increase in the X direction to the right and in
+		// the Y direction down.
+		var image = {
+			url: '../img/marker.jpg',
+			// This marker is 20 pixels wide by 32 pixels tall.
+			size: new google.maps.Size(20, 32),
+			// The origin for this image is 0,0.
+			origin: new google.maps.Point(0,0),
+			// The anchor for this image is the base of the flagpole at 0,32.
+			anchor: new google.maps.Point(0, 32)
+		};
+		// Shapes define the clickable region of the icon.
+		// The type defines an HTML &lt;area&gt; element 'poly' which
+		// traces out a polygon as a series of X,Y points. The final
+		// coordinate closes the poly by connecting to the first
+		// coordinate.
+		var shape = {
+			coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+			type: 'poly'
+		};
+		for (var i = 0; i < locations.length; i++) {
+			var beach = locations[i];
+			var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
+			var marker = new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+				icon: image,
+				shape: shape,
+				title: beach[0],
+				zIndex: beach[3]
 			});
-
-			$headerRow.next().find('.detail-row-wrapper').slideDown('slow', function(){
-				
-			});	
-
-			$('html, body').animate({
-		        scrollTop: $headerRow.next().find('.detail-row-wrapper').offset().top - 100
-		    }, 500);
-	
-			$headerRow.addClass('active');
-			$headerRow.next().addClass('active');
-			var $graphic_anchor = $('.complex-project-graphic-interaction a[data-target = "#'+$headerRow.prop('id')+'" ]');
-			if ($graphic_anchor.length) {
-				$graphic_anchor.attr("class", "active");
-			}
-
 		}
 	}
 
-	//$('#complexContactForm').hide();
-
-	//fixes safari 6?
-	$(".complex-project-graphic img").load(function(){
-		$('.complex-project-graphic-interaction').height($('.complex-project-graphic img').height());
-	});
-
-	$('.complex-unit-detail-row .detail-row-wrapper').slideUp(0);
-	$('.complex-unit-header-row').click(function() {
-		activateProjectUnit($(this));
-	});
-
-	$('.complex-project-graphic-interaction a').click(function(event) {
-		event.preventDefault();
-		var url =$(this).attr("xlink:href"), idx = url.indexOf("#");
-		var hash = idx !== -1 ? url.substring(idx+1) : "";
-		if ($('#'+hash).length) {
-			$('#'+hash).click();
-		}	
-	});
-
-	var curHash = $(location).attr('href').replace(/^.*?(#|$)/,'');
-	if (curHash && $('#'+curHash).length) {
-		$('#'+curHash).click();
-	}
-
-	$('.complex-call-contact-form').click(function(event) {
-		event.preventDefault();
-		var unit_id = $(this).data('unit-id');
-		$('#complexContactForm form [name="complex-unit-inquiry[unit_id]"]').val(unit_id);
-
-		$('#complexContactForm').appendTo($(this).parent());
-		$('#complexContactForm').slideUp(0);
-		$('#complexContactForm').slideDown('slow', function(){
-			/*$('html, body').animate({
-		        scrollTop: $("#complexContactForm").offset().top - 100
-		    }, 500);*/
-		});
-		/*$('html, body').animate({
-	        scrollTop: $("#complexContactForm").offset().top - 100
-	    }, 500);*/
-
-		$('.complex-sendback-contact-form').show();
-
-		$(this).hide();
-	});
-
-	$('.complex-sendback-contact-form').click(function(event) {
-		event.preventDefault();
-		//$('#complexContactForm').appendTo($(this).parent());
-		//$('#complexContactForm').slideDown('fast');
-		$('#complexContactForm').slideUp('slow');
-		$('.complex-call-contact-form').show();
-		//$(this).hide();
-	});
-
-} );
+	google.maps.event.addDomListener(window, 'load', initialize);
+});

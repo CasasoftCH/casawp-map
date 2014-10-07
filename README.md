@@ -1,4 +1,4 @@
-# Complex-Manager #
+# Casasync-Map #
 
 Contributors: casasoft
 Tags: bootstrap, real-estate, complex, inquiries, sell, rent, buy
@@ -10,7 +10,7 @@ Tested up to: 4
 **Complex Manager** is a plugin that will make selling and renting requests for real-estate building projects simple and hasle free.
 
 
-## Getting Started with Complex-Managert ##
+## Getting Started with Casasync-Mapt ##
 
 Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
 

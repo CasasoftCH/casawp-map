@@ -11,6 +11,17 @@ class render extends Feature {
 	public function set_shortcodes() {
 		add_shortcode( 'CXM-list', array($this, 'shortcode_list'));
 		add_shortcode( 'CXM-graphic', array($this, 'shortcode_graphic'));
+		add_shortcode( 'CSM-map', array($this, 'shortcode_map'));
+	}
+
+	
+	function shortcode_map( $atts ) {
+	    $a = shortcode_atts( array(
+	    ), $atts );
+
+	    $html = '<div id="casasync-map_map" style="height:400px; width: 400px;">ste</div>';
+
+	    return $html;
 	}
 
 	// [CXM-list cols="name,price,rent" labels="Name,Preis,Mietpreis" sales="rent" type="3"]

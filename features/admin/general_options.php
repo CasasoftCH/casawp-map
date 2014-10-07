@@ -37,11 +37,12 @@ class general_options extends Feature
     public function add_plugin_page()
     {
         // This page will be under "Settings"
-        add_options_page(
-            'Settings Admin', 
-            'Complex Manager Settings', 
-            'manage_options', 
-            'casasyncmap-admin', 
+        add_submenu_page(
+            'casasync',
+            'Casasync Map',
+            'Casasync Map',
+            'manage_options',
+            'casasync-map',
             array( $this, 'create_admin_page' )
         );
     }
@@ -55,15 +56,15 @@ class general_options extends Feature
 
 
         // Set class property
-        $this->options = get_option( 'complex_manager' );
+        $this->options = get_option( 'casasync_map' );
         ?>
         <div class="wrap">
             <?php screen_icon(); ?>
-            <h2>Complex Manager</h2>           
+            <h2>Casasync Map</h2>           
             <form method="post" action="options.php">
                 <?php
                     // This prints out all hidden setting fields
-                    settings_fields( 'cxm_general_options' );   
+                    settings_fields( 'csm_general_options' );   
                     do_settings_sections( 'my-setting-admin' );
                     submit_button(); 
                 ?>
@@ -80,8 +81,8 @@ class general_options extends Feature
     public function page_init()
     {        
         register_setting(
-            'cxm_general_options', // Option group
-            'complex_manager', // Option name
+            'csm_general_options', // Option group
+            'casasync_map', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
@@ -90,53 +91,15 @@ class general_options extends Feature
             'My Custom Settings', // Title
             array( $this, 'print_section_info' ), // Callback
             'my-setting-admin' // Page
-        );  
-
-        /*add_settings_field(
-            'id_number', // ID
-            'ID Number', // Title 
-            array( $this, 'id_number_callback' ), // Callback
-            'my-setting-admin', // Page
-            'setting_section_id' // Section           
-        );    */  
-
-        add_settings_field(
-            'project_image', 
-             __( 'Project Image', 'casasyncmap' ), 
-             array( $this, 'project_image_callback' ),
-             'my-setting-admin', 
-             'setting_section_id'
         );
 
         add_settings_field(
-            'emails', 
-             __( 'Emails', 'casasyncmap' ), 
-            array( $this, 'emails_callback' ), 
+            'load_google_maps_api', 
+             __( 'Google Maps API', 'casasyncmap' ), 
+            array( $this, 'load_google_maps_api_callback' ), 
             'my-setting-admin', 
             'setting_section_id'
-        );    
-
-        add_settings_field(
-            'remcat', 
-             __( 'Remcat', 'casasyncmap' ), 
-            array( $this, 'remcat_callback' ), 
-            'my-setting-admin', 
-            'setting_section_id'
-        );  
-
-        add_settings_field(
-            'idx_ref_property', 
-             __( 'IDX / REMCat Property Ref.', 'casasyncmap' ), 
-            array( $this, 'idx_ref_property_callback' ), 
-            'my-setting-admin', 
-            'setting_section_id'
-        );  
-
-        
-
-
-
-
+        );
     }
 
     /**
@@ -147,22 +110,10 @@ class general_options extends Feature
     public function sanitize( $input )
     {
         $new_input = array();
-        if( isset( $input['id_number'] ) )
-            $new_input['id_number'] = absint( $input['id_number'] );
 
-        if( isset( $input['emails'] ) )
-            $new_input['emails'] = sanitize_text_field( $input['emails'] );
-
-        if( isset( $input['remcat'] ) )
-            $new_input['remcat'] = sanitize_text_field( $input['remcat'] );
-
-        if( isset( $input['project_image'] ) )
-            $new_input['project_image'] = sanitize_text_field( $input['project_image'] );
-
-        if( isset( $input['idx_ref_property'] ) )
-            $new_input['idx_ref_property'] = sanitize_text_field( $input['idx_ref_property'] );
-
-        
+        if( isset( $input['load_google_maps_api'] ) ) {
+            $new_input['load_google_maps_api'] = sanitize_text_field( $input['load_google_maps_api'] );
+        }
 
         return $new_input;
     }
@@ -178,67 +129,14 @@ class general_options extends Feature
     /** 
      * Get the settings option array and print one of its values
      */
-    public function id_number_callback()
+    public function load_google_maps_api_callback()
     {
-        printf(
-            '<input type="text" id="id_number" name="complex_manager[id_number]" value="%s" />',
-            isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : ''
-        );
-    }
-
-    /** 
-     * Get the settings option array and print one of its values
-     */
-    public function emails_callback()
-    {
-        printf(
-            '<input type="text" id="emails" name="complex_manager[emails]" value="%s" />',
-            isset( $this->options['emails'] ) ? esc_attr( $this->options['emails']) : ''
-        );
-    }
-
-    public function remcat_callback()
-    {
-        printf(
-            '<input type="text" id="remcat" name="complex_manager[remcat]" value="%s" />',
-            isset( $this->options['remcat'] ) ? esc_attr( $this->options['remcat']) : ''
-        );
-    }
-
-    public function idx_ref_property_callback()
-    {
-        printf(
-            '<input type="text" id="idx_ref_property" name="complex_manager[idx_ref_property]" value="%s" />',
-            isset( $this->options['idx_ref_property'] ) ? esc_attr( $this->options['idx_ref_property']) : ''
-        );
-    }
-
-    public function project_image_callback()
-    {
-        $image_src = false;
-        $set = false;
-        $value = (isset( $this->options['project_image'] ) ? esc_attr( $this->options['project_image']) : '');
-        if ($value) {
-            $image_attributes = wp_get_attachment_image_src( $value, 'medium' ); // returns an array
-            if ($image_attributes) {
-                $set = true;
-                $image_src = $image_attributes[0];
-            }
+        $is_checked = false;
+        if( isset($this->options['load_google_maps_api'] ) && $this->options['load_google_maps_api'] == 1) {
+            $is_checked = true;
         }
-
-        if (!$set) {
-            echo "<strong>Sehr Wichtig!!!</strong>";
-        }
-
-        printf(
-            '
-            <img src="%s" id="complex_upload_project_image_src" /><br>
-            <input type="hidden" id="complex_upload_project_image" name="complex_manager[project_image]" value="%s" />
-            <input id="complex_upload_project_image_button" type="button" class="complex_image_upload button" value="' . __( 'Upload Image', 'casasyncmap' ) . '" />
-            ',
-            $image_src,
-            $value
-        );
+        echo '<input type="hidden" name="casasync_map[load_google_maps_api]" value="0" />';
+        echo '<input type="checkbox" id="load_google_maps_api" name="casasync_map[load_google_maps_api]" value="1" ' . ($is_checked === true ? 'checked="checked"' : '') . ' />';
     }
 
     public function set_standard_terms(){
