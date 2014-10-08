@@ -9,8 +9,8 @@ class render extends Feature {
 	}
 
 	public function set_shortcodes() {
-		add_shortcode( 'CXM-list', array($this, 'shortcode_list'));
-		add_shortcode( 'CXM-graphic', array($this, 'shortcode_graphic'));
+		//add_shortcode( 'CXM-list', array($this, 'shortcode_list'));
+		//add_shortcode( 'CXM-graphic', array($this, 'shortcode_graphic'));
 		add_shortcode( 'CSM-map', array($this, 'shortcode_map'));
 	}
 
@@ -47,7 +47,7 @@ class render extends Feature {
 		}
 
 		echo '<pre>';
-		#print_r($properties);
+		//print_r($properties);
 		echo '</pre>';
 
 		$propertiesJson = json_encode($properties);
