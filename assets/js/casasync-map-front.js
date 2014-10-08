@@ -6,34 +6,66 @@ jQuery( function () {
 	/* Google Maps
 	*************************/
 
+	function initialize() {
+		var mapOptions = {
+			zoom: 7,
+			center: new google.maps.LatLng(46.4548574,7.9495519)
+		};
+
+		var map = new google.maps.Map(document.getElementById('casasync-map_map'), mapOptions);
+
+		var propertiesJson = jQuery('#casasync-map_map').attr('data-properties');
+		var properties = jQuery.parseJSON( propertiesJson )
+
+		jQuery.each(properties, function (i, property) {
+			var myLatLng = new google.maps.LatLng(property.lng, property.lat);
+			var marker = new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+				//icon: image,
+				title: property.title,
+			});
+			marker.setTitle((i + 1).toString());
+			attachMessage(marker, property.title);
+		});
+	}
+
+	function attachMessage(marker, title) {
+		var infowindow = new google.maps.InfoWindow({
+			content: title
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(marker.get('map'), marker);
+		});
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+	// OLD
 
 	// The following example creates complex markers to indicate beaches near
 	// Sydney, NSW, Australia. Note that the anchor is set to
 	// (0,32) to correspond to the base of the flagpole.
 
-	function initialize() {
+	/*function initialize() {
 		var mapOptions = {
-			zoom: 10,
-			center: new google.maps.LatLng(-33.9, 151.2)
+			zoom: 7,
+			center: new google.maps.LatLng(46.4548574,7.9495519)
 		}
+
 		var map = new google.maps.Map(document.getElementById('casasync-map_map'), mapOptions);
-		setMarkers(map, beaches);
+	
+
+		var propertiesJson = jQuery('#casasync-map_map').attr('data-properties');
+		var properties = jQuery.parseJSON( propertiesJson );
+		setMarkers(map, properties);
 	}
 
-	/**
-	 * Data for the markers consisting of a name, a LatLng and a zIndex for
-	 * the order in which these markers should display on top of each
-	 * other.
-	 */
-	var beaches = [
-	  ['Bondi Beach', -33.890542, 151.274856, 4],
-	  ['Coogee Beach', -33.923036, 151.259052, 5],
-	  ['Cronulla Beach', -34.028249, 151.157507, 3],
-	  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-	  ['Maroubra Beach', -33.950198, 151.259302, 1]
-	];
 
-	function setMarkers(map, locations) {
+	function setMarkers(map, properties) {
 		// Add markers to the map
 
 		// Marker sizes are expressed as a Size of X,Y
@@ -57,23 +89,20 @@ jQuery( function () {
 		// traces out a polygon as a series of X,Y points. The final
 		// coordinate closes the poly by connecting to the first
 		// coordinate.
-		var shape = {
-			coords: [1, 1, 1, 20, 18, 20, 18 , 1],
-			type: 'poly'
-		};
-		for (var i = 0; i < locations.length; i++) {
-			var beach = locations[i];
-			var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
+
+		jQuery.each(properties, function (i, property) {
+			var myLatLng = new google.maps.LatLng(property.lng, property.lat);
 			var marker = new google.maps.Marker({
 				position: myLatLng,
 				map: map,
-				icon: image,
-				shape: shape,
-				title: beach[0],
-				zIndex: beach[3]
+				//icon: image,
+				title: property.title,
 			});
-		}
+		});
 	}
 
-	google.maps.event.addDomListener(window, 'load', initialize);
+	google.maps.event.addDomListener(window, 'load', initialize);*/
+
+
+
 });

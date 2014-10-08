@@ -60,13 +60,13 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/assets\/img\/example-project-bg.png": {
-		"fileType": 32768,
+	"\/assets\/img\/marker.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 77612,
-		"inputAbbreviatedPath": "\/assets\/img\/example-project-bg.png",
-		"outputAbbreviatedPath": "\/assets\/img\/example-project-bg.png",
+		"initialSize": 641,
+		"inputAbbreviatedPath": "\/assets\/img\/marker.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/marker.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -121,6 +121,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/jquery.canvasAreaDraw.min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/jquery.canvasAreaDraw.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/assets\/js\/min\/casasync-map-front-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/min\/casasync-map-front-min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/casasync-map-front-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,

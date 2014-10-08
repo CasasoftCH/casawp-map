@@ -16,10 +16,44 @@ class render extends Feature {
 
 	
 	function shortcode_map( $atts ) {
-	    $a = shortcode_atts( array(
-	    ), $atts );
+		$a = shortcode_atts( array(
+		), $atts );
 
-	    $html = '<div id="casasync-map_map" style="height:400px; width: 400px;">ste</div>';
+
+
+		$args = array(
+			'post_type' => 'casasync_property',
+			'post_status' => 'publish',
+			'posts_per_page' => -1,
+		);
+
+		$the_query = new \WP_Query($args);
+		$properties = array();
+		if ( $the_query->have_posts() ) {
+			$i = 0;
+			while ( $the_query->have_posts() ) :
+				$the_query->the_post();
+				$featured_img_src = wp_get_attachment_image_src(get_post_thumbnail_id( get_the_ID(), 'thumbnail' ));
+				$properties[$i] = array();
+				$properties[$i]['ID'] = get_the_ID();
+				$properties[$i]['title'] = get_the_title();
+				$properties[$i]['permalink'] = get_the_permalink();
+				$properties[$i]['image_url'] = $featured_img_src['0'];
+				$properties[$i]['lat'] = get_post_meta(get_the_ID(), ('casasync_property_geo_latitude'), true );
+				$properties[$i]['lng'] = get_post_meta(get_the_ID(), ('casasync_property_geo_longitude'), true );
+				$i++;
+			endwhile;
+			wp_reset_postdata();
+		}
+
+		echo '<pre>';
+		#print_r($properties);
+		echo '</pre>';
+
+		$propertiesJson = json_encode($properties);
+
+
+	    $html = "<div id='casasync-map_map' data-properties='" . $propertiesJson . "'></div>";
 
 	    return $html;
 	}
