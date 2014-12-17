@@ -55,7 +55,7 @@ class render extends Feature {
 			endwhile;
 			wp_reset_postdata();
 		}
-
+		
 		$propertiesJson = json_encode($properties);
 
 
