@@ -10,7 +10,7 @@ class PluginOptions {
 	/**
 	 * @var The namespace for all options.
 	 */
-	public static $option_key = "complex_manager";
+	public static $option_key = "casasync_map";
 
 	/**
 	 * Updates the plug-in's options data to the current version.

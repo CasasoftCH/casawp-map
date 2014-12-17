@@ -94,9 +94,17 @@ class general_options extends Feature
         );
 
         add_settings_field(
-            'load_google_maps_api', 
+            'csm_load_google_maps_api', 
              __( 'Google Maps API', 'casasyncmap' ), 
             array( $this, 'load_google_maps_api_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        );
+
+        add_settings_field(
+            'csm_filter_config', 
+             __( 'Filter-Einstellungen', 'casasyncmap' ), 
+            array( $this, 'filter_config_callback' ), 
             'my-setting-admin', 
             'setting_section_id'
         );
@@ -111,8 +119,11 @@ class general_options extends Feature
     {
         $new_input = array();
 
-        if( isset( $input['load_google_maps_api'] ) ) {
-            $new_input['load_google_maps_api'] = sanitize_text_field( $input['load_google_maps_api'] );
+        if( isset( $input['csm_load_google_maps_api'] ) ) {
+            $new_input['csm_load_google_maps_api'] = sanitize_text_field( $input['csm_load_google_maps_api'] );
+        }
+        if( isset( $input['csm_filter_config'] ) ) {
+            $new_input['csm_filter_config'] = sanitize_text_field( $input['csm_filter_config'] );
         }
 
         return $new_input;
@@ -132,11 +143,21 @@ class general_options extends Feature
     public function load_google_maps_api_callback()
     {
         $is_checked = false;
-        if( isset($this->options['load_google_maps_api'] ) && $this->options['load_google_maps_api'] == 1) {
+        if( isset($this->options['csm_load_google_maps_api'] ) && $this->options['csm_load_google_maps_api'] == 1) {
             $is_checked = true;
         }
-        echo '<input type="hidden" name="casasync_map[load_google_maps_api]" value="0" />';
-        echo '<input type="checkbox" id="load_google_maps_api" name="casasync_map[load_google_maps_api]" value="1" ' . ($is_checked === true ? 'checked="checked"' : '') . ' />';
+        echo '<input type="hidden" name="casasync_map[csm_load_google_maps_api]" value="0" />';
+        echo '<input type="checkbox" id="csm_load_google_maps_api" name="casasync_map[csm_load_google_maps_api]" value="1" ' . ($is_checked === true ? 'checked="checked"' : '') . ' />';
+    }
+
+    public function filter_config_callback()
+    {
+        $value = '';
+        if( isset($this->options['csm_filter_config']) ) {
+            $value = json_decode($this->options['csm_filter_config']);
+            $value = json_encode($value, JSON_PRETTY_PRINT);
+        }
+        echo '<textarea id="csm_filter_config" class="large-text code" cols="50" rows="20" name="casasync_map[csm_filter_config]">'.$value.'</textarea>';
     }
 
     public function set_standard_terms(){

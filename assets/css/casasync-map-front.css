@@ -1,4 +1,33 @@
 #casasync-map_map {
+<<<<<<< HEAD
+  height: 500px;
+  width: 500px;
+}
+#casasync-map_map .infoWindow {
+  position: relative;
+}
+#casasync-map_map .infoWindow strong {
+  font-size: 18px;
+}
+#casasync-map_map .infoWindow img {
+  display: block;
+}
+#casasync-map_map .infoWindow a {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 8px;
+  color: #fff;
+  background-color: #333;
+}
+#casasync_map_filter ul {
+  list-style: none;
+}
+#casasync_map_filter ul input[type="checkbox"] {
+  display: inline;
+  margin-right: 5px;
+=======
   height: 800px;
-  width: 800px;
+  width: 100%;
+>>>>>>> FETCH_HEAD
 }

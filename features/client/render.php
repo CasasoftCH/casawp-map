@@ -9,11 +9,21 @@ class render extends Feature {
 	}
 
 	public function set_shortcodes() {
-		add_shortcode( 'CXM-list', array($this, 'shortcode_list'));
-		add_shortcode( 'CXM-graphic', array($this, 'shortcode_graphic'));
 		add_shortcode( 'CSM-map', array($this, 'shortcode_map'));
+		add_shortcode( 'CSM-filter', array($this, 'shortcode_filter'));
 	}
 
+	function shortcode_filter( $atts ) {
+		$a = shortcode_atts( array(
+		), $atts );
+
+		$template = $this->get_template();
+		$template->set('filter_config', $this->get_option("csm_filter_config"));
+		$filter = $template->apply( 'map-filter.php' );
+
+		return $filter;
+
+	}
 	
 	function shortcode_map( $atts ) {
 		$a = shortcode_atts( array(
@@ -33,27 +43,24 @@ class render extends Feature {
 			$i = 0;
 			while ( $the_query->have_posts() ) :
 				$the_query->the_post();
-				$featured_img_src = wp_get_attachment_image_src(get_post_thumbnail_id( get_the_ID(), 'thumbnail' ));
+				$featured_img_src = wp_get_attachment_image_src(get_post_thumbnail_id( get_the_ID()), 'medium' );
 				$properties[$i] = array();
 				$properties[$i]['ID'] = get_the_ID();
 				$properties[$i]['title'] = get_the_title();
 				$properties[$i]['permalink'] = get_the_permalink();
-				$properties[$i]['image_url'] = $featured_img_src['0'];
 				$properties[$i]['lat'] = get_post_meta(get_the_ID(), ('casasync_property_geo_latitude'), true );
 				$properties[$i]['lng'] = get_post_meta(get_the_ID(), ('casasync_property_geo_longitude'), true );
+				$properties[$i]['img_src'] = $featured_img_src['0'];
 				$i++;
 			endwhile;
 			wp_reset_postdata();
 		}
 
-		echo '<pre>';
-		#print_r($properties);
-		echo '</pre>';
-
 		$propertiesJson = json_encode($properties);
 
 
 	    $html = "<div id='casasync-map_map' data-properties='" . $propertiesJson . "'></div>";
+	    #$html = "<div id='casasync-map_map'></div>";
 
 	    return $html;
 	}

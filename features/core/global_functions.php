@@ -1,6 +1,6 @@
 <?php
 
-function get_cxm($object_id = false, $key = false, $label = false, $type = false){
+/*function get_cxm($object_id = false, $key = false, $label = false, $type = false){
 	$fm = new \casasoft\casasyncmap\field_manager;
 	$post = false;
 	if ($object_id) {
@@ -28,4 +28,4 @@ function get_default_cxm($type, $specials = true){
 		return $fm->getInquiryItems(false, $specials);
 	}
 	return array();
-}
+}*/
