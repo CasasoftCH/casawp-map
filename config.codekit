@@ -238,6 +238,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/features\/core\/global_functions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/features\/core\/global_functions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/features\/feature.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -298,7 +307,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Steven Imhof",
+"lastSavedByUser": "Jens Stalder",
 "manualImportLinks": {
 	},
 "projectAttributes": {
