@@ -4,17 +4,9 @@ namespace casasoft\casasyncmap;
 
 class styles_and_scripts_front extends Feature {
 
-
 	public function __construct() {
 		wp_enqueue_style( 'casasync-map-front', PLUGIN_URL . 'assets/css/casasync-map-front.css', array(), '1', 'screen' );
-		wp_enqueue_script(
-			'casasync-map-front',
-			PLUGIN_URL . 'assets/js/casasync-map-front.js',
-			array('jquery'),
-			false,
-			true
-		);
-
+		
 		$this->options = get_option( 'casasync_map' );
 		if ($this->options['csm_load_google_maps_api'] == 1) {
 			wp_enqueue_script(
@@ -24,6 +16,28 @@ class styles_and_scripts_front extends Feature {
 				false,
 				true);
 		}
+
+		wp_enqueue_script(
+			'casasync-map-front',
+			PLUGIN_URL . 'assets/js/min/casasync-map-front-min.js',
+			array('jquery'),
+			false,
+			true
+		);
+
+		$image_src = '';
+		$value = (isset( $this->options['marker_image'] ) ? esc_attr( $this->options['marker_image']) : '');
+		if ($value) {
+			$image_attributes = wp_get_attachment_image_src( $value, 'full' );
+			if ($image_attributes) {
+				$image_src = $image_attributes[0];
+			}
+		}
+		$args = array(
+			'plugin_url' => PLUGIN_URL,
+			'marker_image' => $image_src
+		);
+		wp_localize_script( 'casasync-map-front', 'casasyncMapOptions', $args );
 	}
 
 }

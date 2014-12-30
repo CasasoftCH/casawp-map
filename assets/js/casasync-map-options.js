@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
   var _custom_media = true,
       _orig_send_attachment = wp.media.editor.send.attachment;
 
-  $('.complex_image_upload').click(function(e) {
+  $('.casasync_map_upload').click(function(e) {
     var send_attachment_bkp = wp.media.editor.send.attachment;
     var button = $(this);
     var id = button.attr('id').replace('_button', '');
@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
       if ( _custom_media ) {
         console.log(attachment);
         $("#"+id).val(attachment.id);
-        $("#"+id+"_src").prop('src', attachment.sizes.medium.url);
+        $("#"+id+"_src").prop('src', attachment.sizes.full.url);
       } else {
         return _orig_send_attachment.apply( this, [props, attachment] );
       };

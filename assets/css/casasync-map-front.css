@@ -19,10 +19,27 @@
   color: #fff;
   background-color: #333;
 }
+#casasync-map_map .infowindow {
+  max-width: 480px;
+  background-color: #FFF;
+  padding: 20px;
+  border: 1px solid #BBB;
+  margin-top: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+#casasync-map_map .infowindow h2 {
+  margin: 0;
+}
+#casasync-map_map .infowindow .bodyContent img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 #casasync_map_filter ul {
+  padding: 0;
   list-style: none;
 }
-#casasync_map_filter ul input[type="checkbox"] {
-  display: inline;
-  margin-right: 5px;
+#casasync_map_filter ul li {
+  font-weight: bold;
+  cursor: pointer;
 }

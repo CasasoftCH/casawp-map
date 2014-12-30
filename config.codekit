@@ -31,27 +31,56 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/assets\/img\/marker.jpg": {
-		"fileType": 16384,
+	"\/assets\/css\/casasync-map-front.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/css\/casasync-map-front.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/css\/casasync-map-front.less": {
+		"allowInsecureImports": 0,
+		"createSourceMap": 0,
+		"disableJavascript": 0,
+		"fileType": 1,
+		"ieCompatibility": 1,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 641,
-		"inputAbbreviatedPath": "\/assets\/img\/marker.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/marker.jpg",
+		"inputAbbreviatedPath": "\/assets\/css\/casasync-map-front.less",
+		"outputAbbreviatedPath": "\/assets\/css\/casasync-map-front.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"relativeURLS": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"strictImports": 0,
+		"strictMath": 0,
+		"strictUnits": 0
+		},
+	"\/assets\/img\/google-marker2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1747,
+		"inputAbbreviatedPath": "\/assets\/img\/google-marker2.png",
+		"outputAbbreviatedPath": "\/assets\/img\/google-marker2.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/starter-kit.png": {
-		"fileType": 32768,
+	"\/assets\/js\/casasync-map-front.js": {
+		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 0,
-		"inputAbbreviatedPath": "\/assets\/img\/starter-kit.png",
-		"outputAbbreviatedPath": "\/assets\/img\/starter-kit.png",
+		"inputAbbreviatedPath": "\/assets\/js\/casasync-map-front.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/casasync-map-front-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/assets\/js\/casasync-map-options.js": {
 		"fileType": 64,
@@ -64,95 +93,44 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/assets\/js\/casasyncmap-meta-box.js": {
+	"\/assets\/js\/infobox.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/casasyncmap-meta-box.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/casasyncmap-meta-box-min.js",
+		"inputAbbreviatedPath": "\/assets\/js\/infobox.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/infobox-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/assets\/js\/jquery.canvasAreaDraw.min.js": {
+	"\/assets\/js\/min\/casasync-map-front-min.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/jquery.canvasAreaDraw.min.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/jquery.canvasAreaDraw.min-min.js",
+		"inputAbbreviatedPath": "\/assets\/js\/min\/casasync-map-front-min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/casasync-map-front-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/assets\/js\/min\/complex-manager-front-min.js": {
+	"\/assets\/js\/min\/casasync-map-options-min.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/min\/complex-manager-front-min.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/complex-manager-front-min-min.js",
+		"inputAbbreviatedPath": "\/assets\/js\/min\/casasync-map-options-min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/casasync-map-options-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/assets\/js\/min\/complex-manager-min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/min\/complex-manager-min.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/complex-manager-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/assets\/js\/min\/complex-manager-options-min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/min\/complex-manager-options-min.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/complex-manager-options-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/assets\/js\/min\/complexmanager-meta-box-min.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/min\/complexmanager-meta-box-min.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/complexmanager-meta-box-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/assets\/templates\/contact-form.php": {
+	"\/assets\/templates\/map-filter.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/templates\/contact-form.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/assets\/templates\/list.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/templates\/list.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/assets\/templates\/project-graphic.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/templates\/project-graphic.php",
+		"inputAbbreviatedPath": "\/assets\/templates\/map-filter.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -175,47 +153,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/features\/admin\/inquiry_archive_cols.php": {
+	"\/features\/admin\/general_options.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/features\/admin\/inquiry_archive_cols.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/features\/admin\/inquiry_metabox.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/features\/admin\/inquiry_metabox.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/features\/admin\/styles_and_scripts.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/features\/admin\/styles_and_scripts.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/features\/admin\/unit_archive_cols.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/features\/admin\/unit_archive_cols.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/features\/admin\/unit_metabox.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/features\/admin\/unit_metabox.php",
+		"inputAbbreviatedPath": "\/features\/admin\/general_options.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -229,20 +171,20 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/features\/core\/field_manager.php": {
+	"\/features\/client\/render.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/features\/core\/field_manager.php",
+		"inputAbbreviatedPath": "\/features\/client\/render.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/features\/core\/global_functions.php": {
+	"\/features\/client\/styles_and_scripts_front.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/features\/core\/global_functions.php",
+		"inputAbbreviatedPath": "\/features\/client\/styles_and_scripts_front.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -261,6 +203,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/features\/kit.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/features\/options.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/features\/options.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -307,8 +258,16 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Jens Stalder",
+"lastSavedByUser": "Steven Imhof",
 "manualImportLinks": {
+	"\/assets\/js\/casasync-map-front.js": [
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/infobox.js",
+			"position": 0,
+			"type": 1
+			}
+		]
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",

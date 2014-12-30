@@ -4,7 +4,7 @@
  *	Description:    Plugin for managing and presenting real-estate building on a map.
  *	Author:         Casasoft AG
  *	Author URI:     http://casasoft.ch
- *	Version: 		0.0.1
+ *	Version: 		1.0.0
  *	Text Domain: 	casasyncmap
  *	Domain Path: 	languages/
  */
@@ -13,7 +13,7 @@ namespace casasoft\casasyncmap;
 require_once( 'features/silence.php' );
 
 
-define( 'casasoft\casasyncmap\VERSION', '0.0.1' );
+define( 'casasoft\casasyncmap\VERSION', '1.0.0' );
 define( 'casasoft\casasyncmap\PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'casasoft\casasyncmap\PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -67,12 +67,6 @@ class CasasyncMap extends Kit {
 	 * @hook register_activation_hook
 	 */
 	public static function activate_plugin() {
-		//generate standard inquiry-reasons
-
-		/*$terms = get_terms( 'inquiry_reason', array() );
-		print_r($terms);
-		die();*/
-
 	}
 
 	/**
@@ -89,14 +83,8 @@ class CasasyncMap extends Kit {
 
 	}
 
-} // End Class
+}
 
-
-
-
-
-
-//...and away we go!
 add_action( 'plugins_loaded', array( 'casasoft\casasyncmap\CasasyncMap', 'init' ) );
 register_activation_hook( __FILE__, array( 'casasoft\casasyncmap\CasasyncMap', 'activate_plugin' ) );
 register_deactivation_hook( __FILE__, array( 'casasoft\casasyncmap\CasasyncMap', 'deactivate_plugin' ) );
