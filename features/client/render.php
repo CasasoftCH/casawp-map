@@ -14,7 +14,7 @@ class render extends Feature {
 
 	function shortcode_filter( $atts ) {
 		$a = shortcode_atts( array(
-			'title' => 'Filter'
+			'title' => ''
 		), $atts );
 
 		$template = $this->get_template();

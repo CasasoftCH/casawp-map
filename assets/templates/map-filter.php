@@ -1,5 +1,7 @@
 <div id="casasync_map_filter">
-	<h3><?php echo $title; ?></h3>
+	<?php if ($title != ''): ?>
+		<h3><?php echo $title; ?></h3>
+	<?php endif; ?>
 	<ul>
 		<?php
 			$filter = json_decode($filter_config, true);

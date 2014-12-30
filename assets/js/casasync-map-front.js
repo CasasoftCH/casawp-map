@@ -13,6 +13,20 @@ jQuery( function () {
 	var mapOptions = {
 		zoom: 7,
 		center: switzerland,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+	    mapTypeControl: false,
+	    mapTypeControlOptions: {
+	        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+	        position: google.maps.ControlPosition.BOTTOM_CENTER
+	    },
+	    panControl: false,
+	    zoomControl: true,
+	    zoomControlOptions: {
+	        style: google.maps.ZoomControlStyle.LARGE,
+	        position: google.maps.ControlPosition.TOP_RIGHT
+	    },
+	    scaleControl: false,
+	    streetViewControl: false,
 	};
 	map = new google.maps.Map(document.getElementById('casasync-map_map'), mapOptions);
 
@@ -32,7 +46,7 @@ jQuery( function () {
 			markerImage = window.casasyncMapOptions.marker_image;
 		}
 		var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(el.lng, el.lat),
+			position: new google.maps.LatLng(el.lat, el.lng),
 			map: map,
 			icon: markerImage,
 		});
