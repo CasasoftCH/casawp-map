@@ -65,8 +65,6 @@ class general_options extends Feature
 					do_settings_sections( 'my-setting-admin' );
 					submit_button(); 
 				?>
-
-				<button class="button button-default" type="submit" name="generate_defaults" value="true">Regenerate Default Terms</button>
 			</form>
 		</div>
 		<?php
@@ -180,13 +178,14 @@ class general_options extends Feature
 		}
 
 		if (!$set) {
-			echo __('No Image', 'casasyncmap');
+			echo '<p>' . __('No Image', 'casasyncmap') . '</p>';
 		} else {
 			echo '<img src="'.$image_src.'" id="complex_upload_project_image_src" />';
 		}
 		echo '<br>';
 		echo '<input type="hidden" id="casasync_map_upload_marker_image" name="casasync_map[marker_image]" value="'.$value.'" />';
-		echo '<input id="casasync_map_upload_marker_image_button" type="button" class="casasync_map_upload button" value="' . __( 'Upload Image', 'casasyncmap' ) . '" />';
+		echo '<input id="casasync_map_upload_marker_image_button" type="button" class="casasync_map_upload button button-primary" value="' . __( 'Upload Image', 'casasyncmap' ) . '" />';
+		echo ' <input type="button" class="button delete_media" value="' . __( 'Delete Image', 'casasyncmap' ) . '" />';
 	}
 }
 

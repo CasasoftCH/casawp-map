@@ -9,7 +9,6 @@ jQuery(document).ready(function($){
     _custom_media = true;
     wp.media.editor.send.attachment = function(props, attachment){
       if ( _custom_media ) {
-        console.log(attachment);
         $("#"+id).val(attachment.id);
         $("#"+id+"_src").prop('src', attachment.sizes.full.url);
       } else {
@@ -21,7 +20,12 @@ jQuery(document).ready(function($){
     return false;
   });
 
-  $('.add_media').on('click', function(){
+  /*$('.add_media').on('click', function(){
     _custom_media = false;
+  });*/
+
+  $('.delete_media').on('click', function(){
+    $('#casasync_map_upload_marker_image').val(null);
   });
+
 });
