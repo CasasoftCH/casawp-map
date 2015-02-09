@@ -20,9 +20,10 @@ jQuery( function () {
 		}
 	});
 
+	var customMapType = ($('#casasync-map_map').data('map_type') == 'SATELLITE') ? (google.maps.MapTypeId.SATELLITE) : (google.maps.MapTypeId.ROADMAP);
 	var mapOptions = {
 		center: switzerland,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		mapTypeId: customMapType,
 		mapTypeControl: false,
 		mapTypeControlOptions: {
 			style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
@@ -63,11 +64,12 @@ jQuery( function () {
 
 		google.maps.event.addListener(marker, 'click', (function(marker) {
 			return function() {
+				var readMoreText = $('#casasync-map_map').data('readmore_text');
 				var contentString = '<div class="infowindow">'+
 					'<h2>'+el.title+'</h2>'+
 					'<div class="bodyContent">'+
 					'<div class="attachedImage"><img src="'+el.img_src+'" alt="" /></div>'+
-					'<a href="' + el.permalink + '" class="btn btn-default" target="_blank">Details</a>'+
+					'<a href="' + el.permalink + '" class="btn btn-default" target="_blank">'+readMoreText+'</a>'+
 					'</div>'+
 					'</div>';
 				infowindow.setContent(contentString);
