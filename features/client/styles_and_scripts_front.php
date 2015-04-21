@@ -34,8 +34,9 @@ class styles_and_scripts_front extends Feature {
 			}
 		}
 		$args = array(
-			'plugin_url' => PLUGIN_URL,
-			'marker_image' => $image_src
+			'plugin_url'   => PLUGIN_URL,
+			'marker_image' => $image_src,
+			'infobox_template' => $this->options['csm_infobox_template']
 		);
 		wp_localize_script( 'casasync-map-front', 'casasyncMapOptions', $args );
 	}

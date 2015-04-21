@@ -111,6 +111,14 @@ class general_options extends Feature
 			'my-setting-admin', 
 			'setting_section_id'
 		);
+
+		add_settings_field(
+			'csm_infobox_template', 
+			 __( 'Objekt-Details Tempalte', 'casasyncmap' ), 
+			array( $this, 'infobox_template_callback' ), 
+			'my-setting-admin', 
+			'setting_section_id'
+		);
 	}
 
 	/**
@@ -128,8 +136,12 @@ class general_options extends Feature
 		if( isset( $input['csm_filter_config'] ) ) {
 			$new_input['csm_filter_config'] = sanitize_text_field( $input['csm_filter_config'] );
 		}
-		if( isset( $input['marker_image'] ) )
+		if( isset( $input['csm_infobox_template'] ) ) {
+			$new_input['csm_infobox_template'] = $input['csm_infobox_template'];
+		}
+		if( isset( $input['marker_image'] ) ) {
 			$new_input['marker_image'] = sanitize_text_field( $input['marker_image'] );
+		}
 
 		return $new_input;
 	}
@@ -162,7 +174,18 @@ class general_options extends Feature
 			$value = json_decode($this->options['csm_filter_config']);
 			$value = json_encode($value, JSON_PRETTY_PRINT);
 		}
-		echo '<textarea id="csm_filter_config" class="large-text code" cols="50" rows="20" name="casasync_map[csm_filter_config]">'.$value.'</textarea>';
+		echo '<textarea id="csm_filter_config" class="large-text code" cols="30" rows="15" name="casasync_map[csm_filter_config]">'.$value.'</textarea>';
+	}
+
+	public function infobox_template_callback()
+	{
+		$value = '';
+		if( isset($this->options['csm_infobox_template']) ) {
+			$value = $this->options['csm_infobox_template'];
+			#$value = json_decode($this->options['csm_infobox_template']);
+			#$value = json_encode($value, JSON_PRETTY_PRINT);
+		}
+		echo '<textarea id="csm_infobox_template" class="large-text code" cols="30" rows="15" name="casasync_map[csm_infobox_template]">'.$value.'</textarea>';
 	}
 
 	public function csm_marker_image_callback() {

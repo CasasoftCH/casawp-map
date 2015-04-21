@@ -60,13 +60,13 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/assets\/img\/google-marker2.png": {
+	"\/assets\/img\/close.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1747,
-		"inputAbbreviatedPath": "\/assets\/img\/google-marker2.png",
-		"outputAbbreviatedPath": "\/assets\/img\/google-marker2.png",
+		"initialSize": 2920,
+		"inputAbbreviatedPath": "\/assets\/img\/close.png",
+		"outputAbbreviatedPath": "\/assets\/img\/close.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -121,6 +121,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/min\/casasync-map-options-min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/casasync-map-options-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/assets\/js\/mustache.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/mustache.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/mustache-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -263,8 +274,14 @@
 	"\/assets\/js\/casasync-map-front.js": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/infobox.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/mustache.js",
 			"position": 0,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/infobox.js",
+			"position": 1,
 			"type": 1
 			}
 		]

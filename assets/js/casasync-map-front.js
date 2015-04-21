@@ -65,15 +65,16 @@ jQuery( function () {
 		google.maps.event.addListener(marker, 'click', (function(marker) {
 			return function() {
 				var readMoreText = $('#casasync-map_map').data('readmore_text');
-				var contentString = '<div class="infowindow">'+
-					'<h2>'+el.title+'</h2>'+
-					'<div class="bodyContent">'+
-					'<div class="attachedImage"><img src="'+el.img_src+'" alt="" /></div>'+
-					'<a href="' + el.permalink + '" class="btn btn-default" target="_blank">'+readMoreText+'</a>'+
-					'</div>'+
-					'</div>';
-				infowindow.setContent(contentString);
-				infowindow.open(map, marker);
+
+				var template = window.casasyncMapOptions.infobox_template ? $(window.casasyncMapOptions.infobox_template)[0].outerHTML : false;
+					var options = {readMoreText: readMoreText};
+					var data = {"property" : el, "options" : options};
+
+					Mustache.parse(template);
+					var rendered = Mustache.render(template, data);
+					infowindow.setContent(rendered);
+					infowindow.open(map, marker);
+				//});
 			}
 		})(marker));
 	}
@@ -125,6 +126,9 @@ jQuery( function () {
 			type: 'GET',
 			dataType: 'json',
 			data: {casasync_map: true},
+			complete : function(){
+        alert(this.url)
+    },
 		})
 		.done(function(json) {
 			deleteMarkers();

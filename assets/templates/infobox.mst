@@ -1,0 +1,9 @@
+<div class="infowindow">
+	<h2>{{property.title}}</h2>
+	<div class="bodyContent">
+		<div class="attachedImage">
+			<img src="{{property.img_src}}" alt="" />
+		</div>
+		<a href="{{property.permalink}}" class="btn btn-default" target="_blank">{{options.readMoreText}}</a>
+	</div>
+</div>

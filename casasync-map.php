@@ -58,6 +58,36 @@ class CasasyncMap extends Kit {
 	}
 
 	/**
+	 * Provides the default settings for the plugin.
+	 *
+	 * The defaults method is only ever run on plugin activation and is used to populate the default options
+	 * for the plugin. When you update the options for your plugin in this method when adding functionality,
+	 * the kit will ensure that the user's options are up to date.
+	 *
+	 * @static
+	 * @return array The default preferences and settings for the plugin.
+	 */
+	public static function defaults() {
+		$filter_config = array(
+			array(
+				'label' => "Miete",
+				'url' => get_site_url() . '/immobilien/?casasync_salestype_s[]=rent&casasync_availability_s[]=active'
+			),
+			array(
+				'label' => "Kauf",
+				'url' => get_site_url() . '/immobilien/?casasync_salestype_s[]=buy&casasync_availability_s[]=active'
+			),
+		);
+
+		return array(
+			'csm_load_google_maps_api' => false,
+			'csm_filter_config' => json_encode($filter_config, JSON_FORCE_OBJECT),
+			'csm_infobox_template' => file_get_contents(__DIR__ . '/assets/templates/infobox.mst'),
+			'marker_image' => false,
+		);
+	}
+
+	/**
 	 * Plugin activation hook
 	 *
 	 * Add any activation code you need to do here, like building tables and such.
@@ -86,5 +116,5 @@ class CasasyncMap extends Kit {
 }
 
 add_action( 'plugins_loaded', array( 'casasoft\casasyncmap\CasasyncMap', 'init' ) );
-register_activation_hook( __FILE__, array( 'casasoft\casasyncmap\CasasyncMap', 'activate_plugin' ) );
+register_activation_hook( __FILE__, array( 'casasoft\casasyncmap\CasasyncMap', '_activate_plugin' ) );
 register_deactivation_hook( __FILE__, array( 'casasoft\casasyncmap\CasasyncMap', 'deactivate_plugin' ) );
