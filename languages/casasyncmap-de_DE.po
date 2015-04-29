@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Starter Kit 0.6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 14:50+0100\n"
-"PO-Revision-Date: 2014-09-29 14:51+0100\n"
+"POT-Creation-Date: 2015-04-27 11:16+0100\n"
+"PO-Revision-Date: 2015-04-27 11:17+0100\n"
 "Last-Translator: Jens Stalder <js@casasoft.ch>\n"
 "Language-Team: aut0poietic\n"
 "Language: en_US\n"
@@ -12,608 +12,462 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../assets/templates/contact-form.php:11
-msgid "I am interested in the unit"
-msgstr "Ich interessiere mich für die Wohnung"
+#: ../features/admin/general_options.php:93
+msgid "Google Maps API"
+msgstr ""
 
-#: ../assets/templates/contact-form.php:28
-#: ../features/admin/inquiry_metabox.php:140
-msgid "Salutation"
-msgstr "Anrede"
+#: ../features/admin/general_options.php:101
+#, fuzzy
+msgid "Marker Image"
+msgstr "Projektbild"
 
-#: ../assets/templates/contact-form.php:35
-#: ../features/core/field_manager.php:103
-msgid "Mr."
-msgstr "Herr"
+#: ../features/admin/general_options.php:109
+msgid "Filter-Einstellungen"
+msgstr ""
 
-#: ../assets/templates/contact-form.php:42
-#: ../features/core/field_manager.php:103
-msgid "Mrs."
-msgstr "Frau"
+#: ../features/admin/general_options.php:117
+msgid "Objekt-Details Tempalte"
+msgstr ""
 
-#: ../assets/templates/contact-form.php:49
-#: ../features/core/field_manager.php:85
-msgid "Name"
-msgstr "Name"
+#: ../features/admin/general_options.php:204
+#, fuzzy
+msgid "No Image"
+msgstr "Bild hochladen"
 
-#: ../assets/templates/contact-form.php:80
-#: ../features/core/field_manager.php:89 ../features/core/field_manager.php:93
-msgid "Address"
-msgstr "Adresse"
+#: ../features/admin/general_options.php:210
+msgid "Upload Image"
+msgstr "Bild hochladen"
 
-#: ../assets/templates/contact-form.php:109
-msgid "What do you wish to know?"
-msgstr "Was möchten Sie wissen?"
+#: ../features/admin/general_options.php:211
+#, fuzzy
+msgid "Delete Image"
+msgstr "Projektbild"
 
-#: ../assets/templates/contact-form.php:113
-#: ../features/admin/inquiry_metabox.php:225
-#: ../features/core/field_manager.php:71
-msgid "Message"
-msgstr "Nachricht"
+#: ../features/client/styles_and_scripts_front.php:47
+msgid "Living space"
+msgstr "Wohnfläche"
 
-#: ../assets/templates/contact-form.php:117
-msgid "Describe your inquiry"
-msgstr "Beschreiben Sie Ihre Anfrage"
+#: ../features/client/styles_and_scripts_front.php:48
+#, fuzzy
+msgid "Net Living Space"
+msgstr "Wohnfläche"
 
-#: ../assets/templates/contact-form.php:122
-msgid "Send"
-msgstr "Senden"
+#: ../features/client/styles_and_scripts_front.php:49
+msgid "Location"
+msgstr ""
 
-#: ../assets/templates/list.php:31 ../features/admin/unit_metabox.php:170
-msgid "Available"
-msgstr "Verfügbar"
-
-#: ../assets/templates/list.php:32 ../features/admin/unit_metabox.php:171
-msgid "Reserved"
-msgstr "Reserviert"
+#: ../features/client/styles_and_scripts_front.php:50
+msgid "To property / contact"
+msgstr "Zum Objekt / Kontakt"
 
 #: ../features/silence.php:3
 msgid "Silence is golden... or at least isn't completely annoying."
 msgstr ""
 
-#: ../features/admin/general_options.php:105
-msgid "Project Image"
-msgstr "Projektbild"
-
-#: ../features/admin/general_options.php:113
-msgid "Emails"
-msgstr "E-Mails"
-
-#: ../features/admin/general_options.php:121
-msgid "Remcat"
-msgstr ""
-
-#: ../features/admin/general_options.php:129
-msgid "IDX / REMCat Property Ref."
-msgstr ""
-
-#: ../features/admin/general_options.php:237
-msgid "Upload Image"
-msgstr "Bild hochladen"
-
-#: ../features/admin/inquiry_metabox.php:27
-#: ../features/admin/unit_metabox.php:26
-msgid "Unit Settings"
-msgstr "Objekt Einstellungen"
-
-#: ../features/admin/inquiry_metabox.php:104
-#: ../features/admin/unit_metabox.php:112
-msgid "Choose or Upload a Document"
-msgstr "Wähle oder lade ein Dokument hoch"
-
-#: ../features/admin/inquiry_metabox.php:105
-#: ../features/admin/unit_metabox.php:113
-msgid "Use this document"
-msgstr "Verwende dieses Dokument"
-
-#: ../features/admin/inquiry_metabox.php:131
-msgid "Unit id"
-msgstr "Objekt ID"
-
-#: ../features/admin/inquiry_metabox.php:149
-#: ../features/core/field_manager.php:39
-msgid "First name"
-msgstr "Vorname"
-
-#: ../features/admin/inquiry_metabox.php:158
-#: ../features/core/field_manager.php:43
-msgid "Last name"
-msgstr "Nachname"
-
-#: ../features/admin/inquiry_metabox.php:168
-#: ../features/core/field_manager.php:63
-msgid "Email"
-msgstr "E-Mail"
-
-#: ../features/admin/inquiry_metabox.php:177
-#: ../features/core/field_manager.php:47
-msgid "Phone"
-msgstr "Telefon"
-
-#: ../features/admin/inquiry_metabox.php:189
-#: ../features/core/field_manager.php:51
-msgid "Street"
-msgstr "Strasse"
-
-#: ../features/admin/inquiry_metabox.php:198
-#: ../features/core/field_manager.php:55
-msgid "ZIP"
-msgstr "PLZ"
-
-#: ../features/admin/inquiry_metabox.php:207
-#: ../features/core/field_manager.php:59
-msgid "City"
-msgstr "Ort"
-
-#: ../features/admin/inquiry_metabox.php:216
-#: ../features/core/field_manager.php:67
-msgid "Subject"
-msgstr "Betreff"
-
-#: ../features/admin/post_type_icons.php:33
-msgid "Post Type Icons"
-msgstr ""
-
-#: ../features/admin/post_type_icons.php:37
-msgid "You do not have sufficient permissions to access this page."
-msgstr ""
-"Sie haben nicht ausreichende Rechte um Zugang zu dieser Seite zu haben."
-
-#: ../features/admin/unit_metabox.php:136
-msgid "Hover color"
-msgstr "Schwebefarbe"
-
-#: ../features/admin/unit_metabox.php:163
-msgid "General"
-msgstr "Generell"
-
-#: ../features/admin/unit_metabox.php:167
-#: ../features/core/field_manager.php:222
-msgid "Status"
-msgstr "Status"
-
-#: ../features/admin/unit_metabox.php:172
-msgid "Sold"
-msgstr "Verkauft"
-
-#: ../features/admin/unit_metabox.php:178
-msgid "Number of Rooms"
-msgstr "Zimmer"
-
-#: ../features/admin/unit_metabox.php:187
-msgid "Apartment Story"
-msgstr "Wohnung/Stockwerk"
-
-#: ../features/admin/unit_metabox.php:198
-#: ../features/core/field_manager.php:226
-msgid "IDX / REMCat House Ref."
-msgstr ""
-
-#: ../features/admin/unit_metabox.php:207
-#: ../features/core/field_manager.php:230
-msgid "IDX / REMCat Object Ref."
-msgstr ""
-
-#: ../features/admin/unit_metabox.php:218
-msgid "Spaces"
-msgstr "Flächen"
-
-#: ../features/admin/unit_metabox.php:223
-msgid "Living Space"
-msgstr "Wohnfläche"
-
-#: ../features/admin/unit_metabox.php:232
-msgid "Usable Space"
-msgstr "Nutzfläche"
-
-#: ../features/admin/unit_metabox.php:242
-msgid "Terrace Space"
-msgstr "Terrassenfläche"
-
-#: ../features/admin/unit_metabox.php:251
-msgid "Balcony Space"
-msgstr "Balkonfläche"
-
-#: ../features/admin/unit_metabox.php:265
-msgid "Buy"
-msgstr "Kaufen"
-
-#: ../features/admin/unit_metabox.php:269
-#: ../features/core/field_manager.php:206
-msgid "Currency"
-msgstr "Währung"
-
-#: ../features/admin/unit_metabox.php:282
-msgid "Purchase Price"
-msgstr "Kaufpreis"
-
-#: ../features/admin/unit_metabox.php:286
-msgid "\"\" = not for sale, 0 = upon request"
-msgstr "\"\" = nicht zu verkaufen, 0 = auf Anfrage"
-
-#: ../features/admin/unit_metabox.php:292
-msgid "Purchase scope"
-msgstr "Verkaufs-Segmentierung"
-
-#: ../features/admin/unit_metabox.php:302
-#: ../features/core/field_manager.php:210
-msgid "Rent"
-msgstr "Miete"
-
-#: ../features/admin/unit_metabox.php:307
-msgid "Rent Net Price"
-msgstr "Mietkosten Netto"
-
-#: ../features/admin/unit_metabox.php:311
-msgid "\"\" = not for rent, 0 = upon request"
-msgstr "\"\" = nicht zu vermieten, 0 = auf Anfrage"
-
-#: ../features/admin/unit_metabox.php:317
-msgid "Rent Time segment"
-msgstr "Mieten zeitabschnitt"
-
-#: ../features/admin/unit_metabox.php:328
-msgid "Rental scope"
-msgstr "Miet-Segmentierung"
-
-#: ../features/admin/unit_metabox.php:339
-#: ../features/core/field_manager.php:238
-msgid "Extra Costs"
-msgstr "Nebenkosten"
-
-#: ../features/client/render.php:156
-msgid "First name is required"
-msgstr "Vorname ist benötigt"
-
-#: ../features/client/render.php:157
-msgid "Last name is required"
-msgstr "Nachname ist benötigt"
-
-#: ../features/client/render.php:158
-msgid "Email is not valid"
-msgstr "E-Mail ist nicht korrekt"
-
-#: ../features/client/render.php:159
-msgid "A phone number is required"
-msgstr "Eine Telefonnummer ist benötigt"
-
-#: ../features/client/render.php:160
-msgid "A street address is required"
-msgstr "Eine Strasse ist benötigt"
-
-#: ../features/client/render.php:161
-msgid "ZIP is required"
-msgstr "PLZ ist benötigt"
-
-#: ../features/client/render.php:162
-msgid "City is required"
-msgstr "Ort ist benötigt"
-
-#: ../features/client/render.php:166
-msgid "Ivalid post"
-msgstr "Falsche Absendung"
-
-#: ../features/client/render.php:257 ../features/client/render.php:320
-msgid "Unit inquiry"
-msgstr "Objektanfrage"
-
-#: ../features/client/render.php:292
-msgid "Phone:"
-msgstr "Telefon:"
-
-#: ../features/client/render.php:308 ../features/core/field_manager.php:79
-#: ../features/core/field_manager.php:97
-#: ../features/core/field_manager.php:198
-msgid "Unit"
-msgstr "Objekt"
-
-#: ../features/client/render.php:355
-msgid "Inquiry has been sent. Thank you!"
-msgstr "Anfrage wurde versendet. Danke!"
-
-#: ../features/client/render.php:383
-msgid "Please check the following and try again:"
-msgstr "Bitte überprüfen Sie folgendes und versuchen Sie es erneut:"
-
-#: ../features/core/field_manager.php:75
-msgid "Gender"
-msgstr "Geschlecht"
-
-#: ../features/core/field_manager.php:202
-msgid "Purchase price"
-msgstr "Kaufpreis"
-
-#: ../features/core/field_manager.php:214
-msgid "Rooms"
-msgstr "Zimmer"
-
-#: ../features/core/field_manager.php:218
-msgid "Floor"
-msgstr "Etage"
-
-#: ../features/core/field_manager.php:234
-#: ../features/core/field_manager.php:252
-msgid "Living space"
-msgstr "Wohnfläche"
-
-#: ../features/core/field_manager.php:244
-#, php-format
-msgid "Purchase price%s in %s%s"
-msgstr "Kaufpreis%s in %s%s"
-
-#: ../features/core/field_manager.php:248
-#, php-format
-msgid "Rent%s in %s%s"
-msgstr "Mietzins%s in %s%s"
-
-#: ../features/core/field_manager.php:256
-#, php-format
-msgid "Extra Costs%s in %s%s"
-msgstr "Nebenkosten%s in %s%s"
-
-#: ../features/core/post_types.php:15
-msgctxt "post type general name"
-msgid "Apartment Units"
-msgstr "Objekte"
-
-#: ../features/core/post_types.php:16
-msgctxt "post type singular name"
-msgid "Unit"
-msgstr "Objekt"
-
-#: ../features/core/post_types.php:17
-msgctxt "admin menu"
-msgid "Apartment Units"
-msgstr "Objekte"
-
-#: ../features/core/post_types.php:18
-msgctxt "add new on admin bar"
-msgid "Unit"
-msgstr "Objekt"
-
-#: ../features/core/post_types.php:19
-msgctxt "unit"
-msgid "Add New"
-msgstr "Neu hinzufügen"
-
-#: ../features/core/post_types.php:20
-msgid "Add New Unit"
-msgstr "Neues Objekt hinzufügen"
-
-#: ../features/core/post_types.php:21
-msgid "New Unit"
-msgstr "Neues Objekt hinzufügen"
-
-#: ../features/core/post_types.php:22
-msgid "Edit Unit"
-msgstr "Objekt bearbeiten"
-
-#: ../features/core/post_types.php:23
-msgid "View Unit"
-msgstr "Objekt anzeigen"
-
-#: ../features/core/post_types.php:24
-msgid "All Units"
-msgstr "Alle Objekte"
-
-#: ../features/core/post_types.php:25
-msgid "Search Units"
-msgstr "Objekte Suchen"
-
-#: ../features/core/post_types.php:26
-msgid "Parent Unit:"
-msgstr "Übergeordnetes Objekt"
-
-#: ../features/core/post_types.php:27
-msgid "No units found."
-msgstr "Keine Objekte gefunden."
-
-#: ../features/core/post_types.php:28
-msgid "No units found in Trash."
-msgstr "Keine Objekte im Papierkorb gefunden."
-
-#: ../features/core/post_types.php:53
-msgctxt "taxonomy general name"
-msgid "Buildings"
-msgstr "Gebäude"
-
-#: ../features/core/post_types.php:54
-msgctxt "taxonomy singular name"
-msgid "Building"
-msgstr "Gebäude"
-
-#: ../features/core/post_types.php:55
-msgid "Search Buildings"
-msgstr "Gebäude Suchen"
-
-#: ../features/core/post_types.php:56
-msgid "All Buildings"
-msgstr "Alle Gebäude"
-
-#: ../features/core/post_types.php:57
-msgid "Parent Building"
-msgstr "Übergeordnetes Gebäude"
-
-#: ../features/core/post_types.php:58
-msgid "Parent Building:"
-msgstr "Übergeordnetes Gebäude:"
-
-#: ../features/core/post_types.php:59
-msgid "Edit Building"
-msgstr "Gebäude bearbeiten"
-
-#: ../features/core/post_types.php:60
-msgid "Update Building"
-msgstr "Gebäude aktualisieren"
-
-#: ../features/core/post_types.php:61
-msgid "Add New Building"
-msgstr "Neues Gebäude hinzufügen"
-
-#: ../features/core/post_types.php:62
-msgid "New Building Name"
-msgstr "Neuer Gebäudenamen"
-
-#: ../features/core/post_types.php:63
-msgid "Building"
-msgstr "Gebäude"
-
-#: ../features/core/post_types.php:76
-msgctxt "taxonomy general name"
-msgid "Types"
-msgstr "Typen"
-
-#: ../features/core/post_types.php:77
-msgctxt "taxonomy singular name"
-msgid "Type"
-msgstr "Typ"
-
-#: ../features/core/post_types.php:78
-msgid "Search Types"
-msgstr "Typen suchen"
-
-#: ../features/core/post_types.php:79
-msgid "All Types"
-msgstr "Alle Typen"
-
-#: ../features/core/post_types.php:80
-msgid "Parent Type"
-msgstr "Übergeordneter Typ"
-
-#: ../features/core/post_types.php:81
-msgid "Parent Type:"
-msgstr "Übergeordneter Typ:"
-
-#: ../features/core/post_types.php:82
-msgid "Edit Type"
-msgstr "Typ bearbeiten"
-
-#: ../features/core/post_types.php:83
-msgid "Update Type"
-msgstr "Typ aktualisieren"
-
-#: ../features/core/post_types.php:84
-msgid "Add New Type"
-msgstr "Neuer Typ hinzufügen"
-
-#: ../features/core/post_types.php:85
-msgid "New Type Name"
-msgstr "Neuer Typenname"
-
-#: ../features/core/post_types.php:86
-msgid "Types"
-msgstr "Typen"
-
-#: ../features/core/post_types.php:99
-msgctxt "post type general name"
-msgid "Inquiries"
-msgstr "Anfragen"
-
-#: ../features/core/post_types.php:100
-msgctxt "post type singular name"
-msgid "Inquiry"
-msgstr "Anfrage"
-
-#: ../features/core/post_types.php:101
-msgctxt "admin menu"
-msgid "Inquiries"
-msgstr "Anfragen"
-
-#: ../features/core/post_types.php:102
-msgctxt "add new on admin bar"
-msgid "Inquiry"
-msgstr "Anfrage"
-
-#: ../features/core/post_types.php:103
-msgctxt "inquiry"
-msgid "Add New"
-msgstr "Neu hinzufügen"
-
-#: ../features/core/post_types.php:104
-msgid "Add New Inquiry"
-msgstr "Neue Anfrage hinzufügen"
-
-#: ../features/core/post_types.php:105
-msgid "New Inquiry"
-msgstr "Neue Anfrage"
-
-#: ../features/core/post_types.php:106
-msgid "Edit Inquiry"
-msgstr "Anfrage bearbeiten"
-
-#: ../features/core/post_types.php:107
-msgid "View Inquiry"
-msgstr "Anfrage anzeigen"
-
-#: ../features/core/post_types.php:108
-msgid "All Inquiries"
-msgstr "Alle Anfragen"
-
-#: ../features/core/post_types.php:109
-msgid "Search Inquiries"
-msgstr "Anfrage suchen"
-
-#: ../features/core/post_types.php:110
-msgid "Parent Inquiries:"
-msgstr "Übergeordnete Anfrage"
-
-#: ../features/core/post_types.php:111
-msgid "No inquiries found."
-msgstr "Keine Anfragen gefunden."
-
-#: ../features/core/post_types.php:112
-msgid "No inquiries found in Trash."
-msgstr "Keine Anfragen im Papierkorb gefunden."
-
-#: ../features/core/post_types.php:133
-msgctxt "taxonomy general name"
-msgid "Reasons"
-msgstr "Gründe"
-
-#: ../features/core/post_types.php:134
-msgctxt "taxonomy singular name"
-msgid "Reason"
-msgstr "Grund"
-
-#: ../features/core/post_types.php:135
-msgid "Search Reasons"
-msgstr "Gründe suchen"
-
-#: ../features/core/post_types.php:136
-msgid "All Reasons"
-msgstr "Alle Gründe"
-
-#: ../features/core/post_types.php:137
-msgid "Parent Reason"
-msgstr "Übergeordneter Grund"
-
-#: ../features/core/post_types.php:138
-msgid "Parent Reason:"
-msgstr "Übergeordneter Grund:"
-
-#: ../features/core/post_types.php:139
-msgid "Edit Reason"
-msgstr "Grund bearbeiten"
-
-#: ../features/core/post_types.php:140
-msgid "Update Reason"
-msgstr "Grund aktualisieren"
-
-#: ../features/core/post_types.php:141
-msgid "Add New Reason"
-msgstr "Neuer Grund hinzufügen"
-
-#: ../features/core/post_types.php:142
-msgid "New Reason Name"
-msgstr "Neuer Grund"
-
-#: ../features/core/post_types.php:143
-msgid "Reasons"
-msgstr "Gründe"
+#~ msgid "I am interested in the unit"
+#~ msgstr "Ich interessiere mich für die Wohnung"
+
+#~ msgid "Salutation"
+#~ msgstr "Anrede"
+
+#~ msgid "Mr."
+#~ msgstr "Herr"
+
+#~ msgid "Mrs."
+#~ msgstr "Frau"
+
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgid "Address"
+#~ msgstr "Adresse"
+
+#~ msgid "What do you wish to know?"
+#~ msgstr "Was möchten Sie wissen?"
+
+#~ msgid "Message"
+#~ msgstr "Nachricht"
+
+#~ msgid "Describe your inquiry"
+#~ msgstr "Beschreiben Sie Ihre Anfrage"
+
+#~ msgid "Send"
+#~ msgstr "Senden"
+
+#~ msgid "Available"
+#~ msgstr "Verfügbar"
+
+#~ msgid "Reserved"
+#~ msgstr "Reserviert"
+
+#~ msgid "Emails"
+#~ msgstr "E-Mails"
+
+#~ msgid "Unit Settings"
+#~ msgstr "Objekt Einstellungen"
+
+#~ msgid "Choose or Upload a Document"
+#~ msgstr "Wähle oder lade ein Dokument hoch"
+
+#~ msgid "Use this document"
+#~ msgstr "Verwende dieses Dokument"
+
+#~ msgid "Unit id"
+#~ msgstr "Objekt ID"
+
+#~ msgid "First name"
+#~ msgstr "Vorname"
+
+#~ msgid "Last name"
+#~ msgstr "Nachname"
+
+#~ msgid "Email"
+#~ msgstr "E-Mail"
+
+#~ msgid "Phone"
+#~ msgstr "Telefon"
+
+#~ msgid "Street"
+#~ msgstr "Strasse"
+
+#~ msgid "ZIP"
+#~ msgstr "PLZ"
+
+#~ msgid "City"
+#~ msgstr "Ort"
+
+#~ msgid "Subject"
+#~ msgstr "Betreff"
+
+#~ msgid "You do not have sufficient permissions to access this page."
+#~ msgstr ""
+#~ "Sie haben nicht ausreichende Rechte um Zugang zu dieser Seite zu haben."
+
+#~ msgid "Hover color"
+#~ msgstr "Schwebefarbe"
+
+#~ msgid "General"
+#~ msgstr "Generell"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Sold"
+#~ msgstr "Verkauft"
+
+#~ msgid "Number of Rooms"
+#~ msgstr "Zimmer"
+
+#~ msgid "Apartment Story"
+#~ msgstr "Wohnung/Stockwerk"
+
+#~ msgid "Spaces"
+#~ msgstr "Flächen"
+
+#~ msgid "Usable Space"
+#~ msgstr "Nutzfläche"
+
+#~ msgid "Terrace Space"
+#~ msgstr "Terrassenfläche"
+
+#~ msgid "Balcony Space"
+#~ msgstr "Balkonfläche"
+
+#~ msgid "Buy"
+#~ msgstr "Kaufen"
+
+#~ msgid "Currency"
+#~ msgstr "Währung"
+
+#~ msgid "Purchase Price"
+#~ msgstr "Kaufpreis"
+
+#~ msgid "\"\" = not for sale, 0 = upon request"
+#~ msgstr "\"\" = nicht zu verkaufen, 0 = auf Anfrage"
+
+#~ msgid "Purchase scope"
+#~ msgstr "Verkaufs-Segmentierung"
+
+#~ msgid "Rent"
+#~ msgstr "Miete"
+
+#~ msgid "Rent Net Price"
+#~ msgstr "Mietkosten Netto"
+
+#~ msgid "\"\" = not for rent, 0 = upon request"
+#~ msgstr "\"\" = nicht zu vermieten, 0 = auf Anfrage"
+
+#~ msgid "Rent Time segment"
+#~ msgstr "Mieten zeitabschnitt"
+
+#~ msgid "Rental scope"
+#~ msgstr "Miet-Segmentierung"
+
+#~ msgid "Extra Costs"
+#~ msgstr "Nebenkosten"
+
+#~ msgid "First name is required"
+#~ msgstr "Vorname ist benötigt"
+
+#~ msgid "Last name is required"
+#~ msgstr "Nachname ist benötigt"
+
+#~ msgid "Email is not valid"
+#~ msgstr "E-Mail ist nicht korrekt"
+
+#~ msgid "A phone number is required"
+#~ msgstr "Eine Telefonnummer ist benötigt"
+
+#~ msgid "A street address is required"
+#~ msgstr "Eine Strasse ist benötigt"
+
+#~ msgid "ZIP is required"
+#~ msgstr "PLZ ist benötigt"
+
+#~ msgid "City is required"
+#~ msgstr "Ort ist benötigt"
+
+#~ msgid "Ivalid post"
+#~ msgstr "Falsche Absendung"
+
+#~ msgid "Unit inquiry"
+#~ msgstr "Objektanfrage"
+
+#~ msgid "Phone:"
+#~ msgstr "Telefon:"
+
+#~ msgid "Unit"
+#~ msgstr "Objekt"
+
+#~ msgid "Inquiry has been sent. Thank you!"
+#~ msgstr "Anfrage wurde versendet. Danke!"
+
+#~ msgid "Please check the following and try again:"
+#~ msgstr "Bitte überprüfen Sie folgendes und versuchen Sie es erneut:"
+
+#~ msgid "Gender"
+#~ msgstr "Geschlecht"
+
+#~ msgid "Purchase price"
+#~ msgstr "Kaufpreis"
+
+#~ msgid "Rooms"
+#~ msgstr "Zimmer"
+
+#~ msgid "Floor"
+#~ msgstr "Etage"
+
+#~ msgid "Purchase price%s in %s%s"
+#~ msgstr "Kaufpreis%s in %s%s"
+
+#~ msgid "Rent%s in %s%s"
+#~ msgstr "Mietzins%s in %s%s"
+
+#~ msgid "Extra Costs%s in %s%s"
+#~ msgstr "Nebenkosten%s in %s%s"
+
+#~ msgctxt "post type general name"
+#~ msgid "Apartment Units"
+#~ msgstr "Objekte"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Unit"
+#~ msgstr "Objekt"
+
+#~ msgctxt "admin menu"
+#~ msgid "Apartment Units"
+#~ msgstr "Objekte"
+
+#~ msgctxt "add new on admin bar"
+#~ msgid "Unit"
+#~ msgstr "Objekt"
+
+#~ msgctxt "unit"
+#~ msgid "Add New"
+#~ msgstr "Neu hinzufügen"
+
+#~ msgid "Add New Unit"
+#~ msgstr "Neues Objekt hinzufügen"
+
+#~ msgid "New Unit"
+#~ msgstr "Neues Objekt hinzufügen"
+
+#~ msgid "Edit Unit"
+#~ msgstr "Objekt bearbeiten"
+
+#~ msgid "View Unit"
+#~ msgstr "Objekt anzeigen"
+
+#~ msgid "All Units"
+#~ msgstr "Alle Objekte"
+
+#~ msgid "Search Units"
+#~ msgstr "Objekte Suchen"
+
+#~ msgid "Parent Unit:"
+#~ msgstr "Übergeordnetes Objekt"
+
+#~ msgid "No units found."
+#~ msgstr "Keine Objekte gefunden."
+
+#~ msgid "No units found in Trash."
+#~ msgstr "Keine Objekte im Papierkorb gefunden."
+
+#~ msgctxt "taxonomy general name"
+#~ msgid "Buildings"
+#~ msgstr "Gebäude"
+
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Building"
+#~ msgstr "Gebäude"
+
+#~ msgid "Search Buildings"
+#~ msgstr "Gebäude Suchen"
+
+#~ msgid "All Buildings"
+#~ msgstr "Alle Gebäude"
+
+#~ msgid "Parent Building"
+#~ msgstr "Übergeordnetes Gebäude"
+
+#~ msgid "Parent Building:"
+#~ msgstr "Übergeordnetes Gebäude:"
+
+#~ msgid "Edit Building"
+#~ msgstr "Gebäude bearbeiten"
+
+#~ msgid "Update Building"
+#~ msgstr "Gebäude aktualisieren"
+
+#~ msgid "Add New Building"
+#~ msgstr "Neues Gebäude hinzufügen"
+
+#~ msgid "New Building Name"
+#~ msgstr "Neuer Gebäudenamen"
+
+#~ msgid "Building"
+#~ msgstr "Gebäude"
+
+#~ msgctxt "taxonomy general name"
+#~ msgid "Types"
+#~ msgstr "Typen"
+
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Type"
+#~ msgstr "Typ"
+
+#~ msgid "Search Types"
+#~ msgstr "Typen suchen"
+
+#~ msgid "All Types"
+#~ msgstr "Alle Typen"
+
+#~ msgid "Parent Type"
+#~ msgstr "Übergeordneter Typ"
+
+#~ msgid "Parent Type:"
+#~ msgstr "Übergeordneter Typ:"
+
+#~ msgid "Edit Type"
+#~ msgstr "Typ bearbeiten"
+
+#~ msgid "Update Type"
+#~ msgstr "Typ aktualisieren"
+
+#~ msgid "Add New Type"
+#~ msgstr "Neuer Typ hinzufügen"
+
+#~ msgid "New Type Name"
+#~ msgstr "Neuer Typenname"
+
+#~ msgid "Types"
+#~ msgstr "Typen"
+
+#~ msgctxt "post type general name"
+#~ msgid "Inquiries"
+#~ msgstr "Anfragen"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Inquiry"
+#~ msgstr "Anfrage"
+
+#~ msgctxt "admin menu"
+#~ msgid "Inquiries"
+#~ msgstr "Anfragen"
+
+#~ msgctxt "add new on admin bar"
+#~ msgid "Inquiry"
+#~ msgstr "Anfrage"
+
+#~ msgctxt "inquiry"
+#~ msgid "Add New"
+#~ msgstr "Neu hinzufügen"
+
+#~ msgid "Add New Inquiry"
+#~ msgstr "Neue Anfrage hinzufügen"
+
+#~ msgid "New Inquiry"
+#~ msgstr "Neue Anfrage"
+
+#~ msgid "Edit Inquiry"
+#~ msgstr "Anfrage bearbeiten"
+
+#~ msgid "View Inquiry"
+#~ msgstr "Anfrage anzeigen"
+
+#~ msgid "All Inquiries"
+#~ msgstr "Alle Anfragen"
+
+#~ msgid "Search Inquiries"
+#~ msgstr "Anfrage suchen"
+
+#~ msgid "Parent Inquiries:"
+#~ msgstr "Übergeordnete Anfrage"
+
+#~ msgid "No inquiries found."
+#~ msgstr "Keine Anfragen gefunden."
+
+#~ msgid "No inquiries found in Trash."
+#~ msgstr "Keine Anfragen im Papierkorb gefunden."
+
+#~ msgctxt "taxonomy general name"
+#~ msgid "Reasons"
+#~ msgstr "Gründe"
+
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Reason"
+#~ msgstr "Grund"
+
+#~ msgid "Search Reasons"
+#~ msgstr "Gründe suchen"
+
+#~ msgid "All Reasons"
+#~ msgstr "Alle Gründe"
+
+#~ msgid "Parent Reason"
+#~ msgstr "Übergeordneter Grund"
+
+#~ msgid "Parent Reason:"
+#~ msgstr "Übergeordneter Grund:"
+
+#~ msgid "Edit Reason"
+#~ msgstr "Grund bearbeiten"
+
+#~ msgid "Update Reason"
+#~ msgstr "Grund aktualisieren"
+
+#~ msgid "Add New Reason"
+#~ msgstr "Neuer Grund hinzufügen"
+
+#~ msgid "New Reason Name"
+#~ msgstr "Neuer Grund"
+
+#~ msgid "Reasons"
+#~ msgstr "Gründe"
 
 #~ msgid "Price"
 #~ msgstr "Preis"

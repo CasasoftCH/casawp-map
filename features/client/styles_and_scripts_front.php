@@ -36,9 +36,19 @@ class styles_and_scripts_front extends Feature {
 		$args = array(
 			'plugin_url'   => PLUGIN_URL,
 			'marker_image' => $image_src,
-			'infobox_template' => $this->options['csm_infobox_template']
+			'infobox_template' => $this->options['csm_infobox_template'],
+			'i18n' => $this->getTranslations(),
 		);
 		wp_localize_script( 'casasync-map-front', 'casasyncMapOptions', $args );
+	}
+
+	private function getTranslations() {
+		return array(
+			'living_space' 		=> __('Living space', 'casasync'),
+			'net_living_space' 	=> __('Net living space', 'casasync'),
+			'location'			=> __('Location', 'casasync'),
+			'read_more'			=>__('To property / contact', 'casasyncmap')
+		);
 	}
 
 }
