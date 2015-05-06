@@ -11,7 +11,7 @@
 			<li data-url="<?php echo $value["url"]; ?>" data-current="<?php echo ($i == 1) ? (1) : (0); ?>">
 				<label for="filtervalue<?php echo $i; ?>">
 					<input type="checkbox" id="filtervalue<?php echo $i; ?>" name="filter" <?php echo ($i == 1) ? (' checked="checked"') : (''); ?>>
-					 <?php echo $value['label']; ?>
+					 <i class="<?php echo $value["icon"]; ?>"></i> <?php echo $value['label']; ?>
 				</label> 
 			</li>
 			<?php $i++; ?>
