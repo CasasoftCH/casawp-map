@@ -99,9 +99,14 @@ jQuery( function () {
 		infowindow = new InfoBox(myOptions);
 	}
 
-	$('#casasync_map_filter li').click(function(event) {
-		$('#casasync_map_filter li[data-current="1"]').attr('data-current', 0)
-		$(this).attr('data-current', 1)
+	$('#casasync_map_filter input').click(function(event) {
+		var el = $(this).parent().parent();
+		if($(el).attr('data-current') == 1) {
+			$(el).attr('data-current', 0).find('input').prop('checked', false);
+		} else {
+			$(el).attr('data-current', 1).find('input').prop('checked', true);
+		}
+
 		refreshMarkers();
 	});
 
@@ -120,7 +125,7 @@ jQuery( function () {
 		var rendered = Mustache.render(template, data);
 		infowindow.setContent(rendered);
 		infowindow.open(map, marker);
-		
+
 		// move to click handler on marker
 		google.maps.event.addListener(infowindow, 'domready', function(){
 			$('#casasync-map_map').trigger( "cs_infowindow_open" );
@@ -128,12 +133,12 @@ jQuery( function () {
 	}
 
 	function refreshMarkers() {
-		var url = $('#casasync_map_filter').find('li[data-current="1"]').attr('data-url');
+		var url = getAjaxUrlForMarkers();
 		var ajaxRequest = $.ajax({
 			url: url,
 			type: 'GET',
 			dataType: 'json',
-			data: {casasync_map: true},
+			data: {casasync_map: true}
 		})
 		.done(function(json) {
 			deleteMarkers();
@@ -141,5 +146,17 @@ jQuery( function () {
 				addMarker(el);
 			});
 		});
+	}
+
+	function getAjaxUrlForMarkers() {
+		var urls = $('#casasync_map_filter').find('li[data-current="1"]');
+		var result = $(urls[0]).data('url');
+		urls.each(function(i, el){
+			if (i != 0) {
+				var url = $(el).data('url');
+				result = result + '&' + url.substring(url.indexOf("?")+1);
+			}
+		})
+		return result;
 	}
 });
