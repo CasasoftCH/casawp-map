@@ -12,7 +12,7 @@ jQuery( function () {
 
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { 'address': 'switzerland'}, function(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
+			if (map && status == google.maps.GeocoderStatus.OK) {
 				map.setCenter(results[0].geometry.location);
 				map.fitBounds(results[0].geometry.viewport);
 			}
