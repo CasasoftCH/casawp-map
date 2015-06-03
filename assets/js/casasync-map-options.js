@@ -1,4 +1,6 @@
 jQuery(document).ready(function($){
+
+  // media upload
   var _custom_media = true,
       _orig_send_attachment = wp.media.editor.send.attachment;
 
@@ -20,12 +22,23 @@ jQuery(document).ready(function($){
     return false;
   });
 
-  /*$('.add_media').on('click', function(){
-    _custom_media = false;
-  });*/
-
   $('.delete_media').on('click', function(){
     $('#casasync_map_upload_marker_image').val(null);
   });
-
 });
+
+// filter type
+jQuery(document).ready(function($){
+  function showFilterTypeSection(selector) {
+    var value = $(selector).val();
+    $('div[data-filter-type]').hide();
+    $('div[data-filter-type='+value+']').show();
+  }
+  var selector = $('select[name="casasync_map[csm_filter_typ]"]');
+  $('div[data-filter-type]').hide();
+  showFilterTypeSection(selector);
+  jQuery(selector).on('change', function(){
+    showFilterTypeSection(selector);
+  });
+});
+

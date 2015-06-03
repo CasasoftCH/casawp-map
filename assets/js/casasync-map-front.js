@@ -77,6 +77,7 @@ jQuery( function () {
 			position: new google.maps.LatLng(el.lat, el.lng),
 			map: map,
 			icon: markerImage,
+			animation: google.maps.Animation.DROP
 		});
 		markers.push(marker);
 

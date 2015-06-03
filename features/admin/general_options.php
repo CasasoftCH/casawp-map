@@ -90,7 +90,7 @@ class general_options extends Feature
 
 		add_settings_field(
 			'csm_load_google_maps_api', 
-			 __( 'Google Maps API', 'casasyncmap' ), 
+			 __( 'Load Google Maps API', 'casasyncmap' ), 
 			array( $this, 'load_google_maps_api_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
@@ -99,7 +99,7 @@ class general_options extends Feature
 		add_settings_field(
 			'csm_marker_image', 
 			 __( 'Marker Image', 'casasyncmap' ), 
-			array( $this, 'csm_marker_image_callback' ), 
+			array( $this, 'marker_image_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
 		);
@@ -139,8 +139,11 @@ class general_options extends Feature
 		if( isset( $input['csm_infobox_template'] ) ) {
 			$new_input['csm_infobox_template'] = $input['csm_infobox_template'];
 		}
-		if( isset( $input['marker_image'] ) ) {
-			$new_input['marker_image'] = sanitize_text_field( $input['marker_image'] );
+		if( isset( $input['csm_marker_image'] ) ) {
+			$new_input['csm_marker_image'] = sanitize_text_field( $input['csm_marker_image'] );
+		}
+		if( isset( $input['csm_filter_typ'] ) ) {
+			$new_input['csm_filter_typ'] = sanitize_text_field( $input['csm_filter_typ'] );
 		}
 
 		return $new_input;
@@ -170,6 +173,35 @@ class general_options extends Feature
 	public function filter_config_callback()
 	{
 		$value = '';
+		if( isset($this->options['csm_filter_typ'] ) ) {
+			$value = $this->options['csm_filter_typ'];
+		}
+
+		echo 'Filter Typ: ';
+		echo '<select name="casasync_map[csm_filter_typ]">';
+		echo '<option value="basic"    ' . ( ($value == 'basic')    ? ('selected="selected"') : ('') ) . ' >Einfach</option>';
+		echo '<option value="advanced" ' . ( ($value == 'advanced') ? ('selected="selected"') : ('') ) . ' disabled>Erweitert</option>';
+		echo '</select>';
+
+
+		echo '<hr>';
+		echo '<div data-filter-type="basic">';
+
+		//basic filter
+		echo '<label>Vermarktungsart</label>';
+		echo '<input type="text" value=""/>';
+
+
+		echo '</div>';
+		echo '<div data-filter-type="advanced">';
+
+		//advanced filter
+
+
+		echo '</div>';
+
+		echo '<hr>';
+		$value = '';
 		if( isset($this->options['csm_filter_config']) ) {
 			$value = json_decode($this->options['csm_filter_config']);
 			$value = json_encode($value, JSON_PRETTY_PRINT);
@@ -188,10 +220,10 @@ class general_options extends Feature
 		echo '<textarea id="csm_infobox_template" class="large-text code" cols="30" rows="15" name="casasync_map[csm_infobox_template]">'.$value.'</textarea>';
 	}
 
-	public function csm_marker_image_callback() {
+	public function marker_image_callback() {
 		$image_src = false;
 		$set = false;
-		$value = (isset( $this->options['marker_image'] ) ? esc_attr( $this->options['marker_image']) : '');
+		$value = (isset( $this->options['csm_marker_image'] ) ? esc_attr( $this->options['csm_marker_image']) : '');
 		if ($value) {
 			$image_attributes = wp_get_attachment_image_src( $value, 'full' ); // returns an array
 			if ($image_attributes) {
