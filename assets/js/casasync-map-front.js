@@ -82,7 +82,7 @@ jQuery( function () {
 		});
 		markers.push(marker);
 
-		google.maps.event.addListener(marker, 'click', (function(marker) {
+		google.maps.event.addListener(marker, 'click', (function() {
 			renderInfoWindow(el, marker);
 		}));
 	}
