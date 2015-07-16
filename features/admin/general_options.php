@@ -54,6 +54,8 @@ class general_options extends Feature
 
 		// Set class property
 		$this->options = get_option( 'casasync_map' );
+
+		
 		?>
 		<div class="wrap">
 			<?php screen_icon(); ?>
@@ -105,9 +107,25 @@ class general_options extends Feature
 		);
 
 		add_settings_field(
-			'csm_filter_config', 
+			'csm_filter_type', 
+			 __( 'Filter Type', 'casasyncmap' ), 
+			array( $this, 'filter_type_callback' ), 
+			'my-setting-admin', 
+			'setting_section_id'
+		);
+
+		add_settings_field(
+			'csm_filter_basic', 
 			 __( 'Filter-Einstellungen', 'casasyncmap' ), 
-			array( $this, 'filter_config_callback' ), 
+			array( $this, 'filter_basic_callback' ), 
+			'my-setting-admin', 
+			'setting_section_id'
+		);
+
+		add_settings_field(
+			'csm_filter_advanced', 
+			 __( 'Filter-Einstellungen', 'casasyncmap' ), 
+			array( $this, 'filter_advanced_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
 		);
@@ -133,8 +151,14 @@ class general_options extends Feature
 		if( isset( $input['csm_load_google_maps_api'] ) ) {
 			$new_input['csm_load_google_maps_api'] = sanitize_text_field( $input['csm_load_google_maps_api'] );
 		}
-		if( isset( $input['csm_filter_config'] ) ) {
-			$new_input['csm_filter_config'] = sanitize_text_field( $input['csm_filter_config'] );
+		if( isset( $input['csm_filter_basic'] ) ) {
+			$new_input['csm_filter_basic'] = sanitize_text_field( $input['csm_filter_basic'] );
+		}
+		if( isset( $input['csm_filter_advanced'] ) ) {
+			$new_input['csm_filter_advanced'] = sanitize_text_field( $input['csm_filter_advanced'] );
+		}
+		if( isset( $input['csm_filter_type'] ) ) {
+			$new_input['csm_filter_type'] = sanitize_text_field( $input['csm_filter_type'] );
 		}
 		if( isset( $input['csm_infobox_template'] ) ) {
 			$new_input['csm_infobox_template'] = $input['csm_infobox_template'];
@@ -170,26 +194,113 @@ class general_options extends Feature
 		echo '<input type="checkbox" id="csm_load_google_maps_api" name="casasync_map[csm_load_google_maps_api]" value="1" ' . ($is_checked === true ? 'checked="checked"' : '') . ' />';
 	}
 
-	public function filter_config_callback()
-	{
+	public function filter_type_callback(){
 		$value = '';
 		if( isset($this->options['csm_filter_typ'] ) ) {
 			$value = $this->options['csm_filter_typ'];
 		}
 
-		echo 'Filter Typ: ';
+
 		echo '<select name="casasync_map[csm_filter_typ]">';
 		echo '<option value="basic"    ' . ( ($value == 'basic')    ? ('selected="selected"') : ('') ) . ' >Einfach</option>';
-		echo '<option value="advanced" ' . ( ($value == 'advanced') ? ('selected="selected"') : ('') ) . ' disabled>Erweitert</option>';
+		echo '<option value="advanced" ' . ( ($value == 'advanced') ? ('selected="selected"') : ('') ) . ' >Erweitert</option>';
 		echo '</select>';
+	}
 
+
+	public function filter_advanced_callback(){
+
+	}
+
+	public function filter_basic_callback()
+	{
+
+		$segments = array(
+			"casasync_salestype" => array(
+				"title" => "Salestype",
+				"tax" => "casasync_salestype"
+				),
+			"casasync_availability" => array(
+				"title" => "Availability",
+				"tax" => "casasync_availability"
+				),
+			"casasync_category" => array(
+				"title" => "Category",
+				"tax" => "casasync_category"
+				),
+			"casasync_location" => array(
+				"title" => "Location",
+				"tax" => "casasync_location"
+				),
+		);
+
+		$value = '';
+		if( isset($this->options['csm_filter_basic'] ) ) {
+			$value = json_decode($this->options['csm_filter_basic']);
+		}
+		
+		
+		
 
 		echo '<hr>';
 		echo '<div data-filter-type="basic">';
-
+		
 		//basic filter
-		echo '<label>Vermarktungsart</label>';
-		echo '<input type="text" value=""/>';
+		echo "<table id='CsmFilterBasicTable'>";
+			echo "<thead><tr>";
+				echo "<th>";
+					echo 'Kategorie';
+				echo "</th>";
+				echo "<th>";
+					echo 'Anzeigen';
+				echo "</th>";
+				echo "<th>";
+					echo 'Beschriftung';
+				echo "</th>";
+					
+				echo "<th>";
+					echo 'Include / Exclude';
+				echo "</th>";
+
+				echo "<th>";
+					echo 'Terms';
+				echo "</th>";
+			echo "</tr></thead><tbody>";
+		$i = 0;
+		foreach ($segments as $segment) {
+
+			if (taxonomy_exists($segment['tax'])) {
+
+				$tax = get_taxonomy( $segment['tax'] );
+
+				
+					echo "<tr class='data-row'>";
+						echo "<td>";
+						echo "<input type='hidden' name='filters[$i][taxonomy]' value='".$segment['tax']."'>";
+							echo '<label>' .  __($tax->labels->singular_name , 'casasyncmap') . '</label>';
+						echo "</td>";
+						echo "<td>";
+							echo "<input type='checkbox' name='filters[$i][visible]' value='true' " . ( ($value[$i]->visible == 1) ? ('checked') : ('') ) . ">";
+						echo "</td>";
+						echo "<td>";
+							echo "<input type='text' name='filters[$i][label]' value='" . ( ($value[$i]->label) ? ($value[$i]->label) : (__($tax->labels->singular_name , "casasyncmap")) ) . "'>";
+						echo "</td>";
+						echo "<td>";
+							echo "<select name='filters[$i][inclusive]'>";
+							echo "<option value='1' " . ( ($value[$i]->inclusive) ? ("selected") : ("")) . ">Include</option>";
+							echo "<option value='0' " . ( (!$value[$i]->inclusive) ? ("selected") : ("")) . ">Exclude</option>";
+							echo "</select>";
+						echo "</td>";
+						echo "<td>";
+							echo "<input type='text' name='filters[$i][filter_terms]' value='" . ( ($value[$i]->filter_terms) ? ($value[$i]->filter_terms) : ("")) . "'>";
+						echo "</td>";
+					echo "</tr>";
+			}
+
+			$i++;
+		}
+		echo "</tbody></table>";
+		
 
 
 		echo '</div>';
@@ -201,13 +312,17 @@ class general_options extends Feature
 		echo '</div>';
 
 		echo '<hr>';
+		
+
 		$value = '';
-		if( isset($this->options['csm_filter_config']) ) {
-			$value = json_decode($this->options['csm_filter_config']);
+		if( isset($this->options['csm_filter_basic']) ) {
+			$value = json_decode($this->options['csm_filter_basic']);
 			$value = json_encode($value, JSON_PRETTY_PRINT);
 		}
-		echo '<textarea id="csm_filter_config" class="large-text code" cols="30" rows="15" name="casasync_map[csm_filter_config]">'.$value.'</textarea>';
+		echo '<textarea id="csm_filter_basic" class="large-text code" cols="30" rows="15" name="casasync_map[csm_filter_basic]">'.$value.'</textarea>';
 	}
+
+	
 
 	public function infobox_template_callback()
 	{

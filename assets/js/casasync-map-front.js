@@ -7,6 +7,9 @@ jQuery( function () {
 	"use strict";
 	var $ = jQuery;
 
+	var map_xhr = null;
+	var map_timeout = null;
+
 	function initialize() {
 		var switzerland = new google.maps.LatLng(46.8131873,8.2242101);
 
@@ -67,8 +70,6 @@ jQuery( function () {
 	}
 
 	function addMarker(el) {
-		infowindow.close(map);
-
 		var markerImage = '';
 		if (window.casasyncMapOptions && window.casasyncMapOptions.marker_image) {
 			markerImage = window.casasyncMapOptions.marker_image;
@@ -82,7 +83,7 @@ jQuery( function () {
 		markers.push(marker);
 
 		google.maps.event.addListener(marker, 'click', (function(marker) {
-			renderInfoWindow(el);
+			renderInfoWindow(el, marker);
 		}));
 	}
 
@@ -97,21 +98,26 @@ jQuery( function () {
 			closeBoxURL: closeButton,
 			infoBoxClearance: new google.maps.Size(20, 20),
 		};
-		infowindow = new InfoBox(myOptions);
+		infowindow = new google.maps.InfoWindow(myOptions);
 	}
+	
+	refreshMarkers();
+
+	$('#casasync_map_filter .term-checkbox input:checked').data('current', 1);
 
 	$('#casasync_map_filter input').click(function(event) {
-		var el = $(this).parent().parent();
-		if($(el).attr('data-current') == 1) {
-			$(el).attr('data-current', 0).find('input').prop('checked', false);
+		var el = $(this).closest('.term-checkbox');
+		if($(el).data('current') == 1) {
+			$(el).data('current', 0).find('input').prop('checked', false);
 		} else {
-			$(el).attr('data-current', 1).find('input').prop('checked', true);
+			$(el).data('current', 1).find('input').prop('checked', true);
 		}
 
 		refreshMarkers();
 	});
 
-	function renderInfoWindow(el) {
+	function renderInfoWindow(el, marker) {
+		
 		var readMoreText = $('#casasync-map_map').data('readmore_text');
 
 		var template = window.casasyncMapOptions.infobox_template ? $(window.casasyncMapOptions.infobox_template)[0].outerHTML : false;
@@ -121,43 +127,57 @@ jQuery( function () {
 			i18n = window.casasyncMapOptions.i18n;
 		}
 		var data = {"property" : el, "options" : options, "i18n" : i18n };
-
 		Mustache.parse(template);
-		var rendered = Mustache.render(template, data);
-		infowindow.setContent(rendered);
-		infowindow.open(map, marker);
 
-		// move to click handler on marker
-		google.maps.event.addListener(infowindow, 'domready', function(){
-			$('#casasync-map_map').trigger( "cs_infowindow_open" );
-		});
+		var rendered = Mustache.render(template, data);
+
+		infowindow.setContent(rendered);
+
+		infowindow.open(map, marker);
 	}
 
 	function refreshMarkers() {
-		var url = getAjaxUrlForMarkers();
-		var ajaxRequest = $.ajax({
-			url: url,
-			type: 'GET',
-			dataType: 'json',
-			data: {casasync_map: true}
-		})
-		.done(function(json) {
-			deleteMarkers();
-			$.each(json, function(index, el) {
-				addMarker(el);
-			});
-		});
+		if(map_xhr && map_xhr.readyState != 4){
+            map_xhr.abort();
+        }
+
+        if (map_timeout) {
+        	clearTimeout(map_timeout);
+        }
+
+        map_timeout = setTimeout(function(){
+        	var url = getAjaxUrlForMarkers();
+        	map_xhr = $.ajax({
+        		url: url,
+        		type: 'GET',
+        		dataType: 'json',
+        		data: {casasync_map: true}
+        	})
+        	.done(function(json) {
+        		deleteMarkers();
+        		$.each(json, function(index, el) {
+        			addMarker(el);
+        		});
+        	});
+        }, 300);
+
+
+	
 	}
 
 	function getAjaxUrlForMarkers() {
 		var urls = $('#casasync_map_filter').find('li[data-current="1"]');
-		var result = $(urls[0]).data('url');
-		urls.each(function(i, el){
+
+		var result =  "/immobilien?" + $('#casasync_map_filter form').serialize();
+
+		
+		/*urls.each(function(i, el){
 			if (i != 0) {
 				var url = $(el).data('url');
 				result = result + '&' + url.substring(url.indexOf("?")+1);
 			}
-		})
+		})*/
+		if (true) {};
 		return result;
 	}
 });

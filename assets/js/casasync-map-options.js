@@ -25,6 +25,8 @@ jQuery(document).ready(function($){
   $('.delete_media').on('click', function(){
     $('#casasync_map_upload_marker_image').val(null);
   });
+
+
 });
 
 // filter type
@@ -40,5 +42,35 @@ jQuery(document).ready(function($){
   jQuery(selector).on('change', function(){
     showFilterTypeSection(selector);
   });
+
+
+  //javascript json generation
+  $("#CsmFilterBasicTable").change(function(){
+    //var serialized = $("#CsmFilterBasicTable input, #CsmFilterBasicTable select").serializeArray();
+    //var jsonified = JSON.stringify(serialized);
+    //console.log(jsonified);
+    //$('#csm_filter_basic').attr('value', jsonified);
+
+    var result = [];
+
+    $("#CsmFilterBasicTable .data-row").each(function(key, element){
+      var visibleElem = $(element).find('[name="filters['+key+'][visible]"]:checked');
+      result.push({
+        taxonomy: $(element).find('[name="filters['+key+'][taxonomy]"]').val(),
+        visible: (visibleElem.length ? true : false),
+        inclusive: ($(element).find('[name="filters['+key+'][inclusive]"]').find(":selected").val() == "1" ? true : false),
+        label: $(element).find('[name="filters['+key+'][label]"]').val(),
+        filter_terms: $(element).find('[name="filters['+key+'][filter_terms]"]').val()
+      });
+      
+    })
+
+    
+
+    $('#csm_filter_basic').attr('value', JSON.stringify(result, null, 4));
+
+  });
+
+
 });
 

@@ -18,7 +18,7 @@ class render extends Feature {
 		), $atts );
 
 		$template = $this->get_template();
-		$template->set('filter_config', $this->get_option("csm_filter_config"));
+		$template->set('filter_config', $this->get_option("csm_filter_basic"));
 		$template->set('title', $a['title']);
 		$filter = $template->apply( 'map-filter.php' );
 

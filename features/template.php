@@ -1,6 +1,6 @@
 <?php
 namespace casasoft\casasyncmap;
-require_once( 'silence.php') ;
+require_once('silence.php') ;
 
 /**
  * Template Class

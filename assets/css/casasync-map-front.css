@@ -41,10 +41,9 @@
   max-width: 100%;
   height: auto;
 }
-#casasync_map_filter ul {
-  padding: 0;
-  list-style: none;
+#casasync_map_filter .taxonomy_wrapper {
+  padding-bottom: 10px;
 }
-#casasync_map_filter ul li {
-  font-weight: bold;
+#casasync_map_filter .taxonomy_wrapper .term-checkbox {
+  padding-left: 10px;
 }
