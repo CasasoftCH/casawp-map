@@ -78,7 +78,9 @@ jQuery( function () {
 			position: new google.maps.LatLng(el.lat, el.lng),
 			map: map,
 			icon: markerImage,
-			animation: google.maps.Animation.DROP
+			animation: google.maps.Animation.DROP,
+			name: el.id,
+			title: el.id+' hello'
 		});
 		markers.push(marker);
 
@@ -93,7 +95,7 @@ jQuery( function () {
 			var closeButton = window.casasyncMapOptions.plugin_url + 'assets/img/close.png';
 		}
 		var myOptions = {
-			pixelOffset: new google.maps.Size(-140, 0),
+			//pixelOffset: new google.maps.Size(-140, 0),
 			closeBoxMargin: "18px 5px 5px 5px",
 			closeBoxURL: closeButton,
 			infoBoxClearance: new google.maps.Size(20, 20),
@@ -117,6 +119,15 @@ jQuery( function () {
 	});
 
 	function renderInfoWindow(el, marker) {
+		/*marker = null;
+		$(markers).each(function(index, el) {
+			if (el.name == el.id) {
+				marker = el;
+			}
+		});
+*/
+		console.log(markers);
+
 		
 		var readMoreText = $('#casasync-map_map').data('readmore_text');
 
@@ -160,7 +171,9 @@ jQuery( function () {
         	.done(function(json) {
         		deleteMarkers();
         		$.each(json, function(index, el) {
-        			addMarker(el);
+        			if (el.lat && el.lng) {
+        				addMarker(el);
+        			}
         		});
         	})
         	.always(function() {

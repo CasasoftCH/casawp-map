@@ -294,13 +294,7 @@
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/mustache.js",
 			"position": 0,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/infobox.js",
-			"position": 1,
-			"type": 1
+			"type": 0
 			}
 		]
 	},

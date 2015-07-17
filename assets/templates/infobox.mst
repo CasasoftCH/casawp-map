@@ -1,9 +1,36 @@
 <div class="infowindow">
 	<h2>{{property.title}}</h2>
+	<strong>{{property.excerpt}}</strong>
 	<div class="bodyContent">
-		<div class="attachedImage">
+		<!--<div class="attachedImage">
 			<img src="{{property.img_src}}" alt="" />
+		</div>-->
+
+		<div id="casasyncMapSlider">
+			<ul>
+				{{#property.images}}
+				<li><img src="{{.}}" alt="" class="img-responsive" style="height:200px;" ></li>
+				{{/property.images}}
+			</ul>
 		</div>
-		<a href="{{property.permalink}}" class="btn btn-default" target="_blank">{{options.readMoreText}}</a>
+
+		{{#property.meta.address_locality}}
+			{{i18n.location}}: {{property.meta.address_locality}}</br>
+		{{/property.meta.address_locality}}
+
+		{{#property.meta.area_bwf}}
+			{{i18n.living_space}}:  {{{property.meta.area_bwf}}}</br>
+		{{/property.meta.area_bwf}}
+
+		{{#property.meta.area_nwf}}
+			{{i18n.net_living_space}}:  {{{property.meta.area_nwf}}}</br>
+		{{/property.meta.area_nwf}}
+
+		{{#property.meta.price}}
+			{{property.main.basis}}
+			{{property.meta.price_label}}:  {{{property.meta.price}}}</br>
+		{{/property.meta.price}}
+
+		</br><a href="{{property.permalink}}" class="btn btn-default" target="_blank">{{i18n.read_more}}</a>
 	</div>
 </div>
