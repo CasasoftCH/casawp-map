@@ -723,20 +723,11 @@ jQuery( function () {
 
 	function renderInfoWindow(el) {
 		marker = null;
-		/*$(markers).each(function(index, el) {
-			if (el.name == el.id) {
-				marker = el;
-			}
-		});*/
 		for (var i = markers.length - 1; i >= 0; i--) {
 			if (markers[i].name == el.id) {
 				marker = markers[i];
 			}
 		}
-		
-
-		/*console.log(markers);*/
-
 		
 		var readMoreText = $('#casasync-map_map').data('readmore_text');
 
