@@ -6,7 +6,8 @@
 	"casasync_location_s" => array()
 ); ?>
 <?php $query = array_merge($default_query, $_GET); ?>
-
+<pre>
+</pre>
 
 <div id="casasync_map_filter">
 	<?php if ($title != ''): ?>
@@ -17,6 +18,7 @@
 			$i = 1;
 		?>
 		<form method="GET">	
+			
 			<?php foreach ($filters as $filter): ?>
 				<?php if ($filter['visible'] == 1): ?>
 					<div class="taxonomy_wrapper <?= ($filter['taxonomy']) ? " " . $filter['taxonomy'] : "" ; ?>">
@@ -26,9 +28,14 @@
 								$filter['taxonomy'].($filter['inclusive'] ? "" : "_not" ) => array_map('trim', explode(',', $filter['filter_terms']))
 							);
 
+								
+							$inc_terms = array_map('trim', explode(',', $filter['filter_terms']));
+							
+								
+							
+
 							$url = "/casasync/ajax?".http_build_query($params);
 							switch ($filter["taxonomy"]) {
-								//case 'casasync_availability': break;
 								case 'casasync_salestype':
 									$terms = get_terms( $filter['taxonomy'], array(
 									    'orderby'           => 'name', 
@@ -52,7 +59,7 @@
 									    'search'            => '', 
 									    'cache_domain'      => 'core'
 									) );
-									foreach ($terms as $term) {									
+									foreach ($terms as $term) {
 										if ($term->name == 'buy') {
 										    $label = __('Buy', 'casasync');
 										} elseif ($term->name == 'rent') {
@@ -61,13 +68,14 @@
 										    $label = $term->name;
 										}
 
-										$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
-											'label' => $label,
-											'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
-										));
+										if (!in_array($term->name, $inc_terms) && !in_array($label, $inc_terms)) {
+											$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
+												'label' => $label,
+												'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
+											));
 
-										echo $input;
-
+											echo $input;
+										}
 									}
 								break;
 								case 'casasync_category': 
@@ -96,13 +104,16 @@
 									foreach ($terms as $term) {
 										if ($converter->casasync_convert_categoryKeyToLabel($term->name)) {
 
-											$label = $converter->casasync_convert_categoryKeyToLabel($term->name) . "<br>";
+											$label = $converter->casasync_convert_categoryKeyToLabel($term->name);
 
-											$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
-												'label' => $label,
-												'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
-												));
-											echo $input;
+											
+											if (!in_array($term->name, $inc_terms) && !in_array($label, $inc_terms)) {
+												$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
+													'label' => $label,
+													'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
+													));
+												echo $input;
+											}
 										}
 									}
 								break;
@@ -131,13 +142,16 @@
 									) );
 									foreach ($terms as $term) {
 										if ($converter->casasync_convert_availabilityKeyToLabel($term->name)) {
-											$label = $converter->casasync_convert_availabilityKeyToLabel($term->name) . "<br>";
+											$label = $converter->casasync_convert_availabilityKeyToLabel($term->name);
 
-											$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
-												'label' => $label,
-												'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
-											));
-											echo $input;
+											
+											if (!in_array($term->name, $inc_terms) && !in_array($label, $inc_terms)) {
+												$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
+													'label' => $label,
+													'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
+												));
+												echo $input;
+											}
 										}
 									}
 									//echo get_post_meta( $term->term_id, 'availability_label', $single = true );
@@ -169,15 +183,19 @@
 
 									foreach ($terms as $term) {
 
-										$label = __($term->name , 'casasync') . "<br>";
+										$label = __($term->name , 'casasync');
 
-										$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->slug, array(
-											'label' => $label,
-											'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
-										));
-										echo $input;
+										
 
-										//echo "<input type='checkbox' id='filtervalue$i' name='filter'" . ($i == 1) ? (' checked="checked"') : ('') . ">";
+										if (!in_array($term->name, $inc_terms) && !in_array($label, $inc_terms)) {
+											$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->slug, array(
+												'label' => $label,
+												'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
+											));
+											echo $input;
+										}
+
+										
 									}
 									break;
 								default:
@@ -207,13 +225,17 @@
 									foreach ($terms as $term) {
 
 
-										$label = __($term->name , 'casasync') . "<br>";
+										$label = __($term->name , 'casasync');
 
-										$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
-											'label' => $label,
-											'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
-										));
-										echo $input;
+										
+										
+										if (!in_array($term->name, $inc_terms) && !in_array($label, $inc_terms)) {
+											$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
+												'label' => $label,
+												'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
+											));
+											echo $input;
+										}
 
 										//echo "<input type='checkbox' id='filtervalue$i' name='filter'" . ($i == 1) ? (' checked="checked"') : ('') . ">";
 									}

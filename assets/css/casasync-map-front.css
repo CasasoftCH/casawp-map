@@ -1,3 +1,49 @@
+.map-spinner {
+  -webkit-animation: spinner 2s infinite linear;
+  -moz-animation: spinner 2s infinite linear;
+  -o-animation: spinner 2s infinite linear;
+  animation: spinner 2s infinite linear;
+}
+@-moz-keyframes spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spinner {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
 #casasync-map_map {
   height: 500px;
   width: 100%;
@@ -40,6 +86,33 @@
   display: block;
   max-width: 100%;
   height: auto;
+}
+.casasync-map-wrap {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.casasync-map-wrap .loader {
+  display: none;
+}
+.casasync-map-wrap.loading .loader {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 40px;
+  text-align: center;
+}
+.casasync-map-wrap.loading .loader i {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
 }
 #casasync_map_filter .taxonomy_wrapper {
   padding-bottom: 10px;

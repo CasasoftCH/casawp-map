@@ -137,9 +137,13 @@ jQuery( function () {
 	}
 
 	function refreshMarkers() {
+
+
 		if(map_xhr && map_xhr.readyState != 4){
             map_xhr.abort();
         }
+
+        $('.casasync-map-wrap').addClass('loading');
 
         if (map_timeout) {
         	clearTimeout(map_timeout);
@@ -158,11 +162,11 @@ jQuery( function () {
         		$.each(json, function(index, el) {
         			addMarker(el);
         		});
+        	})
+        	.always(function() {
+        		$('.casasync-map-wrap').removeClass('loading');
         	});
         }, 300);
-
-
-	
 	}
 
 	function getAjaxUrlForMarkers() {
@@ -177,7 +181,6 @@ jQuery( function () {
 				result = result + '&' + url.substring(url.indexOf("?")+1);
 			}
 		})*/
-		if (true) {};
 		return result;
 	}
 });

@@ -29,14 +29,18 @@ class render extends Feature {
 		$a = shortcode_atts( array(
 			'map_type' => 'SATELLITE'
 		), $atts );
+		$return = "";
+		$return .= '<div class="casasync-map-wrap">';
 
-		$return = '<div id="casasync-map_map"';
+		$return .= '<div id="casasync-map_map"';
 
 		if ($a['map_type']) {
 			$return .= ' data-map_type="' . $a['map_type'] .'"';
 		}
 
-		$return .= ' />';
+		$return .= ' ></div>';
+		$return .= '<div class="loader"><i class="fa fa-spinner fa-spin"></i></div>';
+		$return .= '</div>';
 		return $return;
 	}
 }
