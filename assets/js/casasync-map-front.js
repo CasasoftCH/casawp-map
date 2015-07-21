@@ -111,11 +111,24 @@ jQuery( function () {
 		var el = $(this).closest('.term-checkbox');
 		if($(el).data('current') == 1) {
 			$(el).data('current', 0).find('input').prop('checked', false);
+			var current = 0;
 		} else {
 			$(el).data('current', 1).find('input').prop('checked', true);
+			var current = 1;
 		}
 
-		refreshMarkers();
+
+		 if (current == 1) {
+		 	$(this).closest('.termgroup').find('.children .term-checkbox').data('current', 1);
+		 	$(this).closest('.termgroup').find('input').prop('checked', true)
+		 } else {
+		 	$(this).closest('.termgroup').find('.children .term-checkbox').data('current', 0);
+		 	$(this).closest('.termgroup').find('input').prop('checked', false);
+
+		 	$(this).closest('.termgroup').parent().closest('.termgroup').find('.term-checkbox').first().data('current', 0).find('input').prop('checked', false);
+		 	$(this).closest('.termgroup').parent().closest('.termgroup').parent().closest('.termgroup').find('.term-checkbox').first().data('current', 0).find('input').prop('checked', false);
+		 };
+		 refreshMarkers();
 	});
 
 	function renderInfoWindow(el) {

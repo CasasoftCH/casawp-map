@@ -95,7 +95,7 @@
 		},
 	"\/assets\/js\/infobox.js": {
 		"fileType": 64,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/infobox.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/infobox-min.js",
@@ -287,7 +287,7 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Jens Stalder",
+"lastSavedByUser": "Jeremias Nater",
 "manualImportLinks": {
 	"\/assets\/js\/casasync-map-front.js": [
 		{

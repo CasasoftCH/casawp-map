@@ -29,7 +29,8 @@
 		@$args = array(
 			"label" 	=> "",
 			"id"		=> "",
-			"checked" => false
+			"checked" => false,
+			"parent" => false
 		);
 		*/
 		function __construct($type, $name, $value, $args = array()){
