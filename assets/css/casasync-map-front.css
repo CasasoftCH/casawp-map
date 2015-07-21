@@ -47,51 +47,29 @@
 #casasync-map_map {
   height: 500px;
   width: 100%;
-  /*.infoWindow {
-		position: relative;
-		strong{
-			font-size: 18px;
-		}
-		img{
-			display: block;
-		}
-		a{
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			padding: 8px;
-			color: #fff;
-			background-color: #333;
-		}
-	}
-	.infowindow {
-		width: 320px;
-		@media (min-width: 992px) {
-			width: 480px;
-		}
-		background-color: #FFF;
-		padding: 20px;
-		border: 1px solid #BBB;
-		margin-top: 15px;
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-		font-size: 12px;
-		h2{
-			margin: 0;
-		}
-		.bodyContent img {
-			display: block;
-			max-width: 100%;
-			height: auto;
-		}
-	}*/
 }
-.casasync-map-wrap {
-  /*position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;*/
+#casasync-map_map .infowindow {
   position: relative;
+  min-width: 300px;
+}
+#casasync-map_map .infowindow strong {
+  font-size: 18px;
+}
+#casasync-map_map .infowindow h2 {
+  margin: 5px 0;
+}
+#casasync-map_map .infowindow ul {
+  padding: 0;
+  list-style: none;
+}
+#casasync-map_map .infowindow ul li {
+  display: none;
+}
+#casasync-map_map .infowindow ul li:first-child {
+  display: block;
+}
+#casasync-map_map .infowindow ul li img {
+  margin: 10px 0;
 }
 .casasync-map-wrap .loader {
   display: none;
@@ -117,4 +95,7 @@
 }
 #casasync_map_filter .taxonomy_wrapper .term-checkbox {
   padding-left: 10px;
+}
+#casasync_map_filter .children {
+  margin-left: 10px;
 }
