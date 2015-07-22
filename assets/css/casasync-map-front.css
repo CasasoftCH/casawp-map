@@ -71,6 +71,9 @@
 #casasync-map_map .infowindow ul li img {
   margin: 10px 0;
 }
+.casasync-map-wrap {
+  position: relative;
+}
 .casasync-map-wrap .loader {
   display: none;
 }
