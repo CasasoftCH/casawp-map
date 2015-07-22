@@ -237,7 +237,39 @@ class general_options extends Feature
 		$value = '';
 		if( isset($this->options['csm_filter_basic'] ) ) {
 			$value = json_decode($this->options['csm_filter_basic']);
+		} else {
+			$value = '[
+					    {
+					        "taxonomy": "casasync_salestype",
+					        "visible": true,
+					        "inclusive": false,
+					        "label": "Vermarktungsart",
+					        "filter_terms": ""
+					    },
+					    {
+					        "taxonomy": "casasync_availability",
+					        "visible": true,
+					        "inclusive": false,
+					        "label": "Verf\u00fcgbarkeit",
+					        "filter_terms": ""
+					    },
+					    {
+					        "taxonomy": "casasync_category",
+					        "visible": true,
+					        "inclusive": true,
+					        "label": "Kategorie",
+					        "filter_terms": "Haus, loft, single-house"
+					    },
+					    {
+					        "taxonomy": "casasync_location",
+					        "visible": true,
+					        "inclusive": true,
+					        "label": "Ortschafts",
+					        "filter_terms": ""
+					    }
+					]';
 		}
+
 		
 		
 		
@@ -273,28 +305,27 @@ class general_options extends Feature
 
 				$tax = get_taxonomy( $segment['tax'] );
 
-				
-					echo "<tr class='data-row'>";
-						echo "<td>";
-						echo "<input type='hidden' name='filters[$i][taxonomy]' value='".$segment['tax']."'>";
-							echo '<label>' .  __($tax->labels->singular_name , 'casasyncmap') . '</label>';
-						echo "</td>";
-						echo "<td>";
-							echo "<input type='checkbox' name='filters[$i][visible]' value='true' " . ( ($value[$i]->visible == 1) ? ('checked') : ('') ) . ">";
-						echo "</td>";
-						echo "<td>";
-							echo "<input type='text' name='filters[$i][label]' value='" . ( ($value[$i]->label) ? ($value[$i]->label) : (__($tax->labels->singular_name , "casasyncmap")) ) . "'>";
-						echo "</td>";
-						echo "<td>";
-							echo "<select name='filters[$i][inclusive]'>";
-							echo "<option value='1' " . ( ($value[$i]->inclusive) ? ("selected") : ("")) . ">Include</option>";
-							echo "<option value='0' " . ( (!$value[$i]->inclusive) ? ("selected") : ("")) . ">Exclude</option>";
-							echo "</select>";
-						echo "</td>";
-						echo "<td>";
-							echo "<input type='text' name='filters[$i][filter_terms]' value='" . ( ($value[$i]->filter_terms) ? ($value[$i]->filter_terms) : ("")) . "'>";
-						echo "</td>";
-					echo "</tr>";
+				echo "<tr class='data-row'>";
+					echo "<td>";
+					echo "<input type='hidden' name='filters[$i][taxonomy]' value='".$segment['tax']."'>";
+						echo '<label>' .  __($tax->labels->singular_name , 'casasyncmap') . '</label>';
+					echo "</td>";
+					echo "<td>";
+						echo "<input type='checkbox' name='filters[$i][visible]' value='true' " . ( ($value[$i]->visible == 1) ? ('checked') : ('') ) . ">";
+					echo "</td>";
+					echo "<td>";
+						echo "<input type='text' name='filters[$i][label]' value='" . ( ($value[$i]->label) ? ($value[$i]->label) : (__($tax->labels->singular_name , "casasyncmap")) ) . "'>";
+					echo "</td>";
+					echo "<td>";
+						echo "<select name='filters[$i][inclusive]'>";
+						echo "<option value='1' " . ( ($value[$i]->inclusive) ? ("selected") : ("")) . ">Include</option>";
+						echo "<option value='0' " . ( (!$value[$i]->inclusive) ? ("selected") : ("")) . ">Exclude</option>";
+						echo "</select>";
+					echo "</td>";
+					echo "<td>";
+						echo "<input type='text' name='filters[$i][filter_terms]' value='" . ( ($value[$i]->filter_terms) ? ($value[$i]->filter_terms) : ("")) . "'>";
+					echo "</td>";
+				echo "</tr>";
 			}
 
 			$i++;
