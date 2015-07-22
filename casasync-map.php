@@ -84,6 +84,36 @@ class CasasyncMap extends Kit {
 			'csm_filter_config' => json_encode($filter_config, JSON_FORCE_OBJECT),
 			'csm_infobox_template' => file_get_contents(__DIR__ . '/assets/templates/infobox.mst'),
 			'marker_image' => false,
+			'csm_filter_basic' => '[
+					    {
+					        "taxonomy": "casasync_salestype",
+					        "visible": true,
+					        "inclusive": true,
+					        "label": "Vermarktungsart",
+					        "filter_terms": ""
+					    },
+					    {
+					        "taxonomy": "casasync_availability",
+					        "visible": true,
+					        "inclusive": true,
+					        "label": "Verf\u00fcgbarkeit",
+					        "filter_terms": ""
+					    },
+					    {
+					        "taxonomy": "casasync_category",
+					        "visible": true,
+					        "inclusive": true,
+					        "label": "Kategorie",
+					        "filter_terms": ""
+					    },
+					    {
+					        "taxonomy": "casasync_location",
+					        "visible": true,
+					        "inclusive": true,
+					        "label": "Ortschafts",
+					        "filter_terms": ""
+					    }
+					]'
 		);
 	}
 
