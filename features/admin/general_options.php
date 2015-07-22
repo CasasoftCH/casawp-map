@@ -124,7 +124,7 @@ class general_options extends Feature
 
 		add_settings_field(
 			'csm_filter_advanced', 
-			 __( 'Filter-Einstellungen', 'casasyncmap' ), 
+			 __( 'Erweiterte Filter-Einstellungen', 'casasyncmap' ), 
 			array( $this, 'filter_advanced_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
@@ -238,18 +238,18 @@ class general_options extends Feature
 		if( isset($this->options['csm_filter_basic'] ) ) {
 			$value = json_decode($this->options['csm_filter_basic']);
 		} else {
-			$value = '[
+			$value = json_decode('[
 					    {
 					        "taxonomy": "casasync_salestype",
 					        "visible": true,
-					        "inclusive": false,
+					        "inclusive": true,
 					        "label": "Vermarktungsart",
 					        "filter_terms": ""
 					    },
 					    {
 					        "taxonomy": "casasync_availability",
 					        "visible": true,
-					        "inclusive": false,
+					        "inclusive": true,
 					        "label": "Verf\u00fcgbarkeit",
 					        "filter_terms": ""
 					    },
@@ -258,7 +258,7 @@ class general_options extends Feature
 					        "visible": true,
 					        "inclusive": true,
 					        "label": "Kategorie",
-					        "filter_terms": "Haus, loft, single-house"
+					        "filter_terms": ""
 					    },
 					    {
 					        "taxonomy": "casasync_location",
@@ -267,7 +267,7 @@ class general_options extends Feature
 					        "label": "Ortschafts",
 					        "filter_terms": ""
 					    }
-					]';
+					]');
 		}
 
 		
@@ -349,8 +349,41 @@ class general_options extends Feature
 		if( isset($this->options['csm_filter_basic']) ) {
 			$value = json_decode($this->options['csm_filter_basic']);
 			$value = json_encode($value, JSON_PRETTY_PRINT);
+		} else {
+				$value = '[
+    {
+        "taxonomy": "casasync_salestype",
+        "visible": true,
+        "inclusive": true,
+        "label": "Vermarktungsart",
+        "filter_terms": ""
+    },
+    {
+        "taxonomy": "casasync_availability",
+        "visible": true,
+        "inclusive": true,
+        "label": "Verf\u00fcgbarkeit",
+        "filter_terms": ""
+    },
+    {
+        "taxonomy": "casasync_category",
+        "visible": true,
+        "inclusive": true,
+        "label": "Kategorie",
+        "filter_terms": ""
+    },
+    {
+        "taxonomy": "casasync_location",
+        "visible": true,
+        "inclusive": true,
+        "label": "Ortschafts",
+        "filter_terms": ""
+    }
+]';
 		}
 		echo '<textarea id="csm_filter_basic" class="large-text code" cols="30" rows="15" name="casasync_map[csm_filter_basic]">'.$value.'</textarea>';
+			
+		
 	}
 
 	
