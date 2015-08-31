@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Starter Kit 0.6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-29 11:54+0100\n"
-"PO-Revision-Date: 2015-06-29 16:38+0100\n"
+"POT-Creation-Date: 2015-08-31 14:07+0100\n"
+"PO-Revision-Date: 2015-08-31 14:12+0100\n"
 "Last-Translator: Jens Stalder <js@casasoft.ch>\n"
 "Language-Team: aut0poietic\n"
 "Language: en_US\n"
@@ -16,36 +16,62 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../features/admin/general_options.php:93
+#: ../assets/templates/map-filter.php:151
+msgid "Buy"
+msgstr "Kaufen"
+
+#: ../assets/templates/map-filter.php:153
+msgid "Rent"
+msgstr "Miete"
+
+#: ../features/admin/general_options.php:95
 msgid "Load Google Maps API"
-msgstr ""
+msgstr "Google Maps API Laden"
 
-#: ../features/admin/general_options.php:101
-#, fuzzy
-msgid "Marker Image"
-msgstr "Projektbild"
+#: ../features/admin/general_options.php:103
+msgid "Marker image"
+msgstr "Marker Bild"
 
-#: ../features/admin/general_options.php:109
-msgid "Filter-Einstellungen"
-msgstr ""
+#: ../features/admin/general_options.php:111
+msgid "Filter type"
+msgstr "Filter Typ"
 
-#: ../features/admin/general_options.php:117
+#: ../features/admin/general_options.php:118
+msgid "Map viewport"
+msgstr "Darstellungsbereich der Karte"
+
+#: ../features/admin/general_options.php:125
+msgid "Filter-settings"
+msgstr "Filter-Einstellungen"
+
+#: ../features/admin/general_options.php:133
+msgid "Advanced filter-settings"
+msgstr "Erweiterte Filter-Einstellungen"
+
+#: ../features/admin/general_options.php:141
 msgid "Objekt-Details Tempalte"
 msgstr ""
 
-#: ../features/admin/general_options.php:257
+#: ../features/admin/general_options.php:227
+msgid "Show all markers"
+msgstr "Alle Marker anzeigen"
+
+#: ../features/admin/general_options.php:228
+msgid "Show Switzerland"
+msgstr "Schweiz anzeigen"
+
+#: ../features/admin/general_options.php:372
 #, fuzzy
 msgid "No Image"
 msgstr "Bild hochladen"
 
-#: ../features/admin/general_options.php:263
+#: ../features/admin/general_options.php:378
 msgid "Upload Image"
 msgstr "Bild hochladen"
 
-#: ../features/admin/general_options.php:264
-#, fuzzy
+#: ../features/admin/general_options.php:379
 msgid "Delete Image"
-msgstr "Projektbild"
+msgstr "Bild löschen"
 
 #: ../features/client/styles_and_scripts_front.php:47
 msgid "Living space"
@@ -53,7 +79,7 @@ msgstr "Wohnfläche"
 
 #: ../features/client/styles_and_scripts_front.php:48
 msgid "Net living space"
-msgstr ""
+msgstr "Nettowohnfläche"
 
 #: ../features/client/styles_and_scripts_front.php:49
 msgid "Location"
@@ -65,7 +91,20 @@ msgstr "Zum Objekt / Kontakt"
 
 #: ../features/silence.php:3
 msgid "Silence is golden... or at least isn't completely annoying."
-msgstr ""
+msgstr "Stille ist golden.. oder wenigstens nicht störend"
+
+#, fuzzy
+#~ msgid "Marker Image"
+#~ msgstr "Projektbild"
+
+#~ msgid "Filter Type"
+#~ msgstr "Filter Typ"
+
+#~ msgid "Map Viewport"
+#~ msgstr "Darstellungsbereich der Karte"
+
+#~ msgid "Filter-Settings"
+#~ msgstr "Filter-Einstellungen"
 
 #, fuzzy
 #~ msgid "Net Living Space"
@@ -179,9 +218,6 @@ msgstr ""
 #~ msgid "Balcony Space"
 #~ msgstr "Balkonfläche"
 
-#~ msgid "Buy"
-#~ msgstr "Kaufen"
-
 #~ msgid "Currency"
 #~ msgstr "Währung"
 
@@ -193,9 +229,6 @@ msgstr ""
 
 #~ msgid "Purchase scope"
 #~ msgstr "Verkaufs-Segmentierung"
-
-#~ msgid "Rent"
-#~ msgstr "Miete"
 
 #~ msgid "Rent Net Price"
 #~ msgstr "Mietkosten Netto"

@@ -110,7 +110,7 @@ class CasasyncMap extends Kit {
 					        "taxonomy": "casasync_location",
 					        "visible": true,
 					        "inclusive": true,
-					        "label": "Ortschafts",
+					        "label": "Ortschaft",
 					        "filter_terms": ""
 					    }
 					]'

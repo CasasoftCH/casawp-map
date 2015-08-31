@@ -85,7 +85,7 @@ class general_options extends Feature
 
 		add_settings_section(
 			'setting_section_id', // ID
-			'My Custom Settings', // Title
+			'My custom settings', // Title
 			array( $this, 'print_section_info' ), // Callback
 			'my-setting-admin' // Page
 		);
@@ -100,7 +100,7 @@ class general_options extends Feature
 
 		add_settings_field(
 			'csm_marker_image', 
-			 __( 'Marker Image', 'casasyncmap' ), 
+			 __( 'Marker image', 'casasyncmap' ), 
 			array( $this, 'marker_image_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
@@ -108,15 +108,21 @@ class general_options extends Feature
 
 		add_settings_field(
 			'csm_filter_type', 
-			 __( 'Filter Type', 'casasyncmap' ), 
+			 __( 'Filter type', 'casasyncmap' ), 
 			array( $this, 'filter_type_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
 		);
-
+		add_settings_field(
+			'csm_map_viewport', 
+			 __( 'Map viewport', 'casasyncmap' ), 
+			array( $this, 'map_viewport_callback' ), 
+			'my-setting-admin', 
+			'setting_section_id'
+		);
 		add_settings_field(
 			'csm_filter_basic', 
-			 __( 'Filter-Einstellungen', 'casasyncmap' ), 
+			 __( 'Filter-settings', 'casasyncmap' ), 
 			array( $this, 'filter_basic_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
@@ -124,7 +130,7 @@ class general_options extends Feature
 
 		add_settings_field(
 			'csm_filter_advanced', 
-			 __( 'Erweiterte Filter-Einstellungen', 'casasyncmap' ), 
+			 __( 'Advanced filter-settings', 'casasyncmap' ), 
 			array( $this, 'filter_advanced_callback' ), 
 			'my-setting-admin', 
 			'setting_section_id'
@@ -159,6 +165,9 @@ class general_options extends Feature
 		}
 		if( isset( $input['csm_filter_type'] ) ) {
 			$new_input['csm_filter_type'] = sanitize_text_field( $input['csm_filter_type'] );
+		}
+		if( isset( $input['csm_map_viewport'] ) ) {
+			$new_input['csm_map_viewport'] = sanitize_text_field( $input['csm_map_viewport'] );
 		}
 		if( isset( $input['csm_infobox_template'] ) ) {
 			$new_input['csm_infobox_template'] = $input['csm_infobox_template'];
@@ -207,6 +216,18 @@ class general_options extends Feature
 		echo '</select>';
 	}
 
+	public function map_viewport_callback(){
+		$value = '';
+		if( isset($this->options['csm_map_viewport'] ) ) {
+			$value = $this->options['csm_map_viewport'];
+		}
+
+
+		echo '<select name="casasync_map[csm_map_viewport]">';
+		echo '<option value="fitbounds"    ' . ( ($value == 'fitbounds')    ? ('selected="selected"') : ('') ) . ' >' . __( 'Show all markers', 'casasyncmap' ) . '</option>';
+		echo '<option value="switzerland" ' . ( ($value == 'switzerland') ? ('selected="selected"') : ('') ) . ' >' . __( 'Show Switzerland', 'casasyncmap' ) . '</option>';
+		echo '</select>';
+	}
 
 	public function filter_advanced_callback(){
 

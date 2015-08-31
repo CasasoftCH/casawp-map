@@ -2,7 +2,7 @@ var map;
 var markers = [];
 var infowindow = false;
 var marker;
-
+var latlngbounds;
 jQuery( function () {
 	"use strict";
 	var $ = jQuery;
@@ -20,7 +20,7 @@ jQuery( function () {
 				map.fitBounds(results[0].geometry.viewport);
 			}
 		});
-
+		
 		var customMapType = ($('#casasync-map_map').data('map_type') == 'SATELLITE') ? (google.maps.MapTypeId.SATELLITE) : (google.maps.MapTypeId.ROADMAP);
 		var mapOptions = {
 			center: switzerland,
@@ -152,6 +152,8 @@ jQuery( function () {
 
 		var rendered = Mustache.render(template, data);
 
+		
+
 		infowindow.setContent(rendered);
 
 		infowindow.open(map, marker);
@@ -180,11 +182,20 @@ jQuery( function () {
         	})
         	.done(function(json) {
         		deleteMarkers();
+        		latlngbounds = new google.maps.LatLngBounds();
+
         		$.each(json, function(index, el) {
+        			var position = new google.maps.LatLng(el.lat, el.lng);
         			if (el.lat && el.lng) {
         				addMarker(el);
+
+        				latlngbounds.extend(position);
         			}
         		});
+        		if (window.casasyncMapOptions.map_viewport == 'fitbounds') {
+    				map.setCenter(latlngbounds.getCenter());
+    				map.fitBounds(latlngbounds);
+        		};
         	})
         	.always(function() {
         		$('.casasync-map-wrap').removeClass('loading');
@@ -207,3 +218,10 @@ jQuery( function () {
 		return result;
 	}
 });
+
+
+
+
+			
+
+			
