@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Starter Kit 0.6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-31 14:07+0100\n"
-"PO-Revision-Date: 2015-08-31 14:12+0100\n"
+"POT-Creation-Date: 2015-09-08 16:45+0100\n"
+"PO-Revision-Date: 2015-09-08 16:45+0100\n"
 "Last-Translator: Jens Stalder <js@casasoft.ch>\n"
 "Language-Team: aut0poietic\n"
 "Language: en_US\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
@@ -36,56 +36,60 @@ msgstr "Marker Bild"
 msgid "Filter type"
 msgstr "Filter Typ"
 
-#: ../features/admin/general_options.php:118
+#: ../features/admin/general_options.php:119
+msgid "Map Standard Query"
+msgstr "Karte Standard Abfrage"
+
+#: ../features/admin/general_options.php:127
 msgid "Map viewport"
 msgstr "Darstellungsbereich der Karte"
 
-#: ../features/admin/general_options.php:125
+#: ../features/admin/general_options.php:134
 msgid "Filter-settings"
 msgstr "Filter-Einstellungen"
 
-#: ../features/admin/general_options.php:133
+#: ../features/admin/general_options.php:142
 msgid "Advanced filter-settings"
 msgstr "Erweiterte Filter-Einstellungen"
 
-#: ../features/admin/general_options.php:141
+#: ../features/admin/general_options.php:150
 msgid "Objekt-Details Tempalte"
 msgstr ""
 
-#: ../features/admin/general_options.php:227
+#: ../features/admin/general_options.php:238
 msgid "Show all markers"
 msgstr "Alle Marker anzeigen"
 
-#: ../features/admin/general_options.php:228
+#: ../features/admin/general_options.php:239
 msgid "Show Switzerland"
 msgstr "Schweiz anzeigen"
 
-#: ../features/admin/general_options.php:372
+#: ../features/admin/general_options.php:391
 #, fuzzy
 msgid "No Image"
 msgstr "Bild hochladen"
 
-#: ../features/admin/general_options.php:378
+#: ../features/admin/general_options.php:397
 msgid "Upload Image"
 msgstr "Bild hochladen"
 
-#: ../features/admin/general_options.php:379
+#: ../features/admin/general_options.php:398
 msgid "Delete Image"
 msgstr "Bild löschen"
 
-#: ../features/client/styles_and_scripts_front.php:47
+#: ../features/client/styles_and_scripts_front.php:49
 msgid "Living space"
 msgstr "Wohnfläche"
 
-#: ../features/client/styles_and_scripts_front.php:48
+#: ../features/client/styles_and_scripts_front.php:50
 msgid "Net living space"
 msgstr "Nettowohnfläche"
 
-#: ../features/client/styles_and_scripts_front.php:49
+#: ../features/client/styles_and_scripts_front.php:51
 msgid "Location"
 msgstr "Ort"
 
-#: ../features/client/styles_and_scripts_front.php:50
+#: ../features/client/styles_and_scripts_front.php:52
 msgid "To property / contact"
 msgstr "Zum Objekt / Kontakt"
 
@@ -186,7 +190,8 @@ msgstr "Stille ist golden.. oder wenigstens nicht störend"
 #~ msgstr "Betreff"
 
 #~ msgid "You do not have sufficient permissions to access this page."
-#~ msgstr "Sie haben nicht ausreichende Rechte um Zugang zu dieser Seite zu haben."
+#~ msgstr ""
+#~ "Sie haben nicht ausreichende Rechte um Zugang zu dieser Seite zu haben."
 
 #~ msgid "Hover color"
 #~ msgstr "Schwebefarbe"

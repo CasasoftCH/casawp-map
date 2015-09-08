@@ -113,6 +113,15 @@ class general_options extends Feature
 			'my-setting-admin', 
 			'setting_section_id'
 		);
+
+		add_settings_field(
+			'csm_map_default_query', 
+			 __( 'Map Standard Query', 'casasyncmap' ), 
+			array( $this, 'map_default_query_callback' ), 
+			'my-setting-admin', 
+			'setting_section_id'
+		);
+
 		add_settings_field(
 			'csm_map_viewport', 
 			 __( 'Map viewport', 'casasyncmap' ), 
@@ -165,6 +174,9 @@ class general_options extends Feature
 		}
 		if( isset( $input['csm_filter_type'] ) ) {
 			$new_input['csm_filter_type'] = sanitize_text_field( $input['csm_filter_type'] );
+		}
+		if( isset( $input['csm_map_default_query'] ) ) {
+			$new_input['csm_map_default_query'] = sanitize_text_field( $input['csm_map_default_query'] );
 		}
 		if( isset( $input['csm_map_viewport'] ) ) {
 			$new_input['csm_map_viewport'] = sanitize_text_field( $input['csm_map_viewport'] );
@@ -222,11 +234,18 @@ class general_options extends Feature
 			$value = $this->options['csm_map_viewport'];
 		}
 
-
 		echo '<select name="casasync_map[csm_map_viewport]">';
 		echo '<option value="fitbounds"    ' . ( ($value == 'fitbounds')    ? ('selected="selected"') : ('') ) . ' >' . __( 'Show all markers', 'casasyncmap' ) . '</option>';
 		echo '<option value="switzerland" ' . ( ($value == 'switzerland') ? ('selected="selected"') : ('') ) . ' >' . __( 'Show Switzerland', 'casasyncmap' ) . '</option>';
 		echo '</select>';
+	}
+
+	public function map_default_query_callback(){
+		$value = '';
+		if( isset($this->options['csm_map_default_query'] ) ) {
+			$value = $this->options['csm_map_default_query'];
+		}
+		echo '<textarea name="casasync_map[csm_map_default_query]" class="large-text code" cols="30" rows="1">'. $value .'</textarea>';
 	}
 
 	public function filter_advanced_callback(){
@@ -264,7 +283,7 @@ class general_options extends Feature
 
 		echo '<hr>';
 		echo '<div data-filter-type="basic">';
-		
+
 		//basic filter
 		echo "<table id='CsmFilterBasicTable'>";
 			echo "<thead><tr>";

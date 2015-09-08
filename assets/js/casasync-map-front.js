@@ -192,7 +192,7 @@ jQuery( function () {
         				latlngbounds.extend(position);
         			}
         		});
-        		if (window.casasyncMapOptions.map_viewport == 'fitbounds') {
+        		if (window.casasyncMapOptions && window.casasyncMapOptions.map_viewport == 'fitbounds') {
     				map.setCenter(latlngbounds.getCenter());
     				map.fitBounds(latlngbounds);
         		};
@@ -206,9 +206,14 @@ jQuery( function () {
 	function getAjaxUrlForMarkers() {
 		var urls = $('#casasync_map_filter').find('li[data-current="1"]');
 
-		var result =  "/immobilien?" + $('#casasync_map_filter form').serialize();
+		var default_query;
+		if (window.casasyncMapOptions && window.casasyncMapOptions.map_default_query) {
+			default_query = window.casasyncMapOptions.map_default_query;
+		} else {
+			default_query = '/immobilien';
+		}
+		var result =  default_query + $('#casasync_map_filter form').serialize();
 
-		
 		/*urls.each(function(i, el){
 			if (i != 0) {
 				var url = $(el).data('url');

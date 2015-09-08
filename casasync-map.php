@@ -84,6 +84,7 @@ class CasasyncMap extends Kit {
 			'csm_filter_config' => json_encode($filter_config, JSON_FORCE_OBJECT),
 			'csm_infobox_template' => file_get_contents(__DIR__ . '/assets/templates/infobox.mst'),
 			'marker_image' => false,
+			'csm_map_default_query' => '/immobilien',
 			'csm_filter_basic' => '[
 					    {
 					        "taxonomy": "casasync_salestype",
