@@ -80,7 +80,7 @@ jQuery( function () {
 			icon: markerImage,
 			animation: google.maps.Animation.DROP,
 			name: el.id,
-			title: el.id+' hello'
+			//title: el.id+' hello'
 		});
 		markers.push(marker);
 
@@ -193,6 +193,20 @@ jQuery( function () {
         			}
         		});
         		if (window.casasyncMapOptions && window.casasyncMapOptions.map_viewport == 'fitbounds') {
+        			var zoomChangeBoundsListener;
+        			google.maps.event.addListener(map, 'zoom_changed', function() {
+        			    zoomChangeBoundsListener = 
+        			        google.maps.event.addListener(map, 'bounds_changed', function(event) {
+        			            if (this.getZoom() > 15 && this.initialZoom == true) {
+        			                // Change max/min zoom here
+        			                this.setZoom(15);
+        			                this.initialZoom = false;
+        			            }
+        			        google.maps.event.removeListener(zoomChangeBoundsListener);
+        			    });
+        			});
+        			map.initialZoom = true;
+
     				map.setCenter(latlngbounds.getCenter());
     				map.fitBounds(latlngbounds);
         		};
