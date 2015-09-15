@@ -779,6 +779,7 @@ jQuery( function () {
 
         map_timeout = setTimeout(function(){
         	var url = getAjaxUrlForMarkers();
+       		console.log(url);
         	map_xhr = $.ajax({
         		url: url,
         		type: 'GET',
@@ -829,9 +830,9 @@ jQuery( function () {
 		if (window.casasyncMapOptions && window.casasyncMapOptions.map_default_query) {
 			default_query = window.casasyncMapOptions.map_default_query;
 		} else {
-			default_query = '/immobilien';
+			default_query = '/immobilien/?';
 		}
-		var result =  default_query + $('#casasync_map_filter form').serialize();
+		var result =  default_query + '&' + $('#casasync_map_filter form').serialize();
 
 		/*urls.each(function(i, el){
 			if (i != 0) {
