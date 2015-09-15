@@ -613,7 +613,7 @@ jQuery( function () {
 	var map_xhr = null;
 	var map_timeout = null;
 
-	function initialize() {
+	function initialize() {		
 		var switzerland = new google.maps.LatLng(46.8131873,8.2242101);
 
 		var geocoder = new google.maps.Geocoder();
@@ -651,7 +651,11 @@ jQuery( function () {
 			refreshMarkers();
 		});
 	}
-	google.maps.event.addDomListener(window, 'load', initialize);
+
+	if($('#casasync-map_map').length > 0) {
+		google.maps.event.addDomListener(window, 'load', initialize);
+		refreshMarkers();
+	}
 
 
 	// Sets the map on all markers in the array.
@@ -705,8 +709,6 @@ jQuery( function () {
 		};
 		infowindow = new google.maps.InfoWindow(myOptions);
 	}
-	
-	refreshMarkers();
 
 	$('#casasync_map_filter .term-checkbox input:checked').data('current', 1);
 
