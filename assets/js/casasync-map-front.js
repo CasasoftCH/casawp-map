@@ -112,10 +112,10 @@ jQuery( function () {
 	$('#casasync_map_filter input').click(function(event) {
 		var el = $(this).closest('.term-checkbox');
 		if($(el).data('current') == 1) {
-			$(el).data('current', 0).find('input').prop('checked', false);
+			$(el).data('current', 0).removeClass('is-active').find('input').prop('checked', false);
 			var current = 0;
 		} else {
-			$(el).data('current', 1).find('input').prop('checked', true);
+			$(el).data('current', 1).addClass('is-active').find('input').prop('checked', true);
 			var current = 1;
 		}
 
@@ -176,7 +176,6 @@ jQuery( function () {
 
         map_timeout = setTimeout(function(){
         	var url = getAjaxUrlForMarkers();
-       		console.log(url);
         	map_xhr = $.ajax({
         		url: url,
         		type: 'GET',
