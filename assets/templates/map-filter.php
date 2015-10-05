@@ -188,13 +188,14 @@
 									    'search'            => '', 
 									    'cache_domain'      => 'core'
 									) );
+
 									foreach ($terms as $term) {
 										if ($converter->casasync_convert_categoryKeyToLabel($term->name)) {
 
 											$label = $converter->casasync_convert_categoryKeyToLabel($term->name);
 
 											
-											if (!in_array($term->name, $filter['inc_terms']) && !in_array($label, $filter['inc_terms'])) {
+											if (in_array($term->name, $filter['inc_terms']) || in_array($label, $filter['inc_terms'])) {
 												$input = new casasoft\casasyncmap\Input('checkbox', $filter['taxonomy']."_s[]", $term->name, array(
 													'label' => $label,
 													'checked' => (in_array($term->name, $query[$filter['taxonomy']."_s"]) ? true : false)
